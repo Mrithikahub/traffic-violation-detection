@@ -1,0 +1,45 @@
+{
+  "source_video": "data\\video\\teammate_video.mp4",
+  "tracks_csv": "outputs_demo\\teammate_video_tracks.csv",
+  "homography_file": "outputs_demo\\homography.npy",
+  "width": 1280,
+  "height": 624,
+  "fps": 30.0,
+  "reference_point": "bottom-centre of box (ground contact)",
+  "boundaries_world_x": [
+    -7.91,
+    -0.04,
+    3.24
+  ],
+  "lane_names": [
+    "outer_zone",
+    "inner_lane"
+  ],
+  "lane_widths_m": [
+    7.87,
+    3.28
+  ],
+  "along_road_span_m": [
+    -8.0,
+    34.0
+  ],
+  "min_frames_in_lane": 6,
+  "min_track_frames": 12,
+  "erratic_threshold_changes": 3,
+  "samples_per_lane": {
+    "inner_lane": 120,
+    "outer_zone": 730
+  },
+  "skipped_samples": {
+    "outside_lane_boundaries": 2539,
+    "outside_along_road_span": 7201,
+    "track_too_short": 260
+  },
+  "vehicles_assessed": 100,
+  "lane_change_events": 6,
+  "vehicles_changing_lane": 4,
+  "frequent_changers": {},
+  "EVENTS_NOT_VIOLATIONS": "Lane changes are logged as EVENTS. Changing lane is normal, legal driving; nothing in this layer asserts a violation. The 'frequent_changers' list is descriptive only.",
+  "ASSUMPTIONS": "Lane boundaries are lateral offsets on the ground plane derived from lane-marking dashes in one frame, projected via the homography. They inherit that calibration's assumptions (IRC standard geometry, NOT site-verified) and are valid only for this camera framing. Boundaries far from the laterally calibrated band are extrapolated and less reliable. NOTE: lane(s) ['outer_zone'] span more than ~4.5 m, i.e. more than one physical lane; changes within such a zone are NOT detectable.",
+  "LIMITATIONS": "A vehicle must settle in a lane for several consecutive frames before it counts, so quick weaves may be missed and boundary jitter is deliberately discarded. Vehicles outside the lane boundaries or the along-road span get no lane assignment and are not assessed - they are not counted as staying in lane."
+}

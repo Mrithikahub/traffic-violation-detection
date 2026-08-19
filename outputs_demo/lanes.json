@@ -1,0 +1,6 @@
+{
+  "boundaries_world_x": [-7.91, -0.04, 3.24],
+  "lane_names": ["outer_zone", "inner_lane"],
+  "along_road_span_m": [-8.0, 34.0],
+  "note": "Option A: only the 3 well-supported lane lines (>=5 supporting dashes). outer_zone spans 7.87m, i.e. ~2 physical lanes, because the weak line at x=-3.65 was excluded."
+}

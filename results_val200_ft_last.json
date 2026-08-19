@@ -1,0 +1,106 @@
+{
+  "model": "runs\\detect\\runs\\bmd45_ft\\weights\\last.pt",
+  "conf": 0.1,
+  "imgsz": 640,
+  "total_gt_boxes": 2028,
+  "scored_gt_boxes": 2028,
+  "unmatchable_boxes": 0,
+  "coverage_gap_pct": 0.0,
+  "localisation": {
+    "TP": 1813,
+    "FP": 825,
+    "FN": 215
+  },
+  "with_class": {
+    "TP": 1760,
+    "FP": 878,
+    "FN": 268
+  },
+  "gt_per_canonical": {
+    "rickshaw": 357,
+    "truck": 59,
+    "car": 584,
+    "bus": 98,
+    "bike": 930
+  },
+  "hit_per_canonical": {
+    "rickshaw": 322,
+    "truck": 53,
+    "car": 540,
+    "bus": 87,
+    "bike": 811
+  },
+  "hit_with_class_per_canonical": {
+    "rickshaw": 313,
+    "truck": 34,
+    "car": 526,
+    "bus": 77,
+    "bike": 810
+  },
+  "gt_per_dataset_class": {
+    "Three-wheeler": 357,
+    "Truck": 59,
+    "Hatchback": 204,
+    "Bus": 63,
+    "Two-wheeler": 907,
+    "Sedan": 93,
+    "SUV": 91,
+    "LCV": 112,
+    "MUV": 57,
+    "Van": 27,
+    "Bicycle": 23,
+    "Tempo-traveller": 27,
+    "Mini-bus": 8
+  },
+  "hit_per_dataset_class": {
+    "Three-wheeler": 322,
+    "Truck": 53,
+    "Hatchback": 189,
+    "Bus": 53,
+    "Two-wheeler": 794,
+    "SUV": 87,
+    "LCV": 97,
+    "Sedan": 88,
+    "MUV": 55,
+    "Van": 24,
+    "Bicycle": 17,
+    "Tempo-traveller": 27,
+    "Mini-bus": 7
+  },
+  "label_errors": {
+    "bus -> car": 14,
+    "rickshaw -> car": 10,
+    "truck -> car": 16,
+    "truck -> bus": 4,
+    "car -> bus": 4,
+    "car -> truck": 6,
+    "truck -> rickshaw": 2,
+    "car -> rickshaw": 15,
+    "bike -> car": 1,
+    "bus -> truck": 4,
+    "car -> bike": 5,
+    "rickshaw -> truck": 2,
+    "bike -> rickshaw": 1
+  },
+  "dataset_map": {
+    "Hatchback": "car",
+    "Sedan": "car",
+    "SUV": "car",
+    "MUV": "car",
+    "LCV": "car",
+    "Bus": "bus",
+    "Truck": "truck",
+    "Two-wheeler": "bike",
+    "Bicycle": "bike",
+    "Three-wheeler": "rickshaw",
+    "Van": "car",
+    "Mini-bus": "bus",
+    "Tempo-traveller": "bus"
+  },
+  "assumed_map": {
+    "Van": "car",
+    "Mini-bus": "bus",
+    "Tempo-traveller": "bus"
+  },
+  "unmatchable_classes": []
+}

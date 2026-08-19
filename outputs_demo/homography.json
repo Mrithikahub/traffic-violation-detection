@@ -1,0 +1,28 @@
+{
+  "homography": [
+    [
+      0.07161543342770825,
+      -0.12935405257618868,
+      3.2964094334498784
+    ],
+    [
+      -0.06027622215712677,
+      -0.3449514887035277,
+      119.13435364671811
+    ],
+    [
+      -0.0013500968998357249,
+      -0.007264683911117549,
+      1.0
+    ]
+  ],
+  "assumed_lane_width_m": 3.5,
+  "assumed_pitch_m": 7.5,
+  "solved_dash_length_m": 3.85,
+  "solved_line2_offset_m": 7.75,
+  "recovered_pitch_mean_m": 7.522,
+  "recovered_pitch_sd_m": 0.225,
+  "reprojection_mean_m": 0.1634,
+  "reprojection_max_m": 0.4899,
+  "PROVENANCE": "IRC standard road geometry, NOT site-verified. No distance in this scene was physically measured."
+}

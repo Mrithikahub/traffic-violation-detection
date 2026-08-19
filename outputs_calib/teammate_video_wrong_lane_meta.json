@@ -1,0 +1,89 @@
+{
+  "source_video": "data\\video\\teammate_video.mp4",
+  "tracks_csv": "outputs_demo\\teammate_video_tracks.csv",
+  "width": 1280,
+  "height": 624,
+  "fps": 30.0,
+  "zones": [
+    {
+      "name": "main_carriageway",
+      "polygon": [
+        [
+          200,
+          180
+        ],
+        [
+          1280,
+          180
+        ],
+        [
+          1280,
+          624
+        ],
+        [
+          200,
+          624
+        ]
+      ],
+      "expected_direction": "toward_camera",
+      "unit_vector_image_coords": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "opposite_carriageway",
+      "polygon": [
+        [
+          0,
+          180
+        ],
+        [
+          200,
+          180
+        ],
+        [
+          200,
+          624
+        ],
+        [
+          0,
+          624
+        ]
+      ],
+      "expected_direction": "away_from_camera",
+      "unit_vector_image_coords": [
+        0.0,
+        -1.0
+      ]
+    }
+  ],
+  "reference_point": "bottom-centre of box (ground contact)",
+  "smooth_window_frames": 5,
+  "min_displacement_px": 6.0,
+  "wrong_cos_threshold": -0.3,
+  "min_violation_frames": 5,
+  "min_track_frames": 8,
+  "ignored_regions": [
+    [
+      0.0,
+      355.0,
+      325.0,
+      575.0
+    ]
+  ],
+  "samples_per_zone": {
+    "main_carriageway": 2846,
+    "opposite_carriageway": 653
+  },
+  "no_verdict_reasons": {
+    "window_warmup": 530,
+    "below_min_displacement": 639,
+    "outside_all_zones": 6358,
+    "track_too_short": 203
+  },
+  "vehicles_judged": 57,
+  "vehicles_flagged": 0,
+  "ASSUMPTIONS": "Zone polygons and expected directions are HAND-SPECIFIED for this camera view only; they encode a human judgement about which way traffic should flow in each region, not anything measured from the road. They are invalid for any other camera, framing, or if this camera moves. Direction is measured in the image plane (a sign test, which perspective cannot invert), using the box bottom-centre as the vehicle's ground contact point.",
+  "LIMITATIONS": "A vehicle is flagged only when it moves far enough to have a meaningful heading AND opposes the expected direction for several consecutive frames. Stationary, slow, briefly-tracked, or out-of-zone vehicles receive NO VERDICT - they are not counted as compliant. Reversing, U-turns, and vehicles legitimately crossing between zones will register as wrong-side; this layer tests direction only, not intent or legality."
+}

@@ -1,0 +1,61 @@
+{
+  "source_video": "data\\video\\teammate_video.mp4",
+  "tracks_csv": "outputs_demo\\teammate_video_tracks.csv",
+  "width": 1280,
+  "height": 624,
+  "fps": 30.0,
+  "scale_model": "HOMOGRAPHY ground-plane calibration from homography.npy (bottom-centre reference)",
+  "calibration_method": "homography",
+  "homography_file": "outputs_demo\\homography.npy",
+  "homography_matrix": [
+    [
+      0.07161543342770825,
+      -0.12935405257618868,
+      3.2964094334498784
+    ],
+    [
+      -0.06027622215712677,
+      -0.3449514887035277,
+      119.13435364671811
+    ],
+    [
+      -0.0013500968998357249,
+      -0.007264683911117549,
+      1.0
+    ]
+  ],
+  "CALIBRATION_PROVENANCE": "STANDARD IRC ROAD MEASUREMENTS - NOT SITE-VERIFIED. The exact location of this camera is unknown, so no distance in this scene was physically measured or checked against a map. The ground-plane scale is anchored on IRC lane-marking pitch (3.0 m dash + 4.5 m gap = 7.5 m) and IRC urban lane width 3.5 m, applied to lane markings detected in frame 154. Every speed inherits any error in those assumptions: if the real pitch or lane width differs, all speeds scale proportionally. Site verification (a measured distance, or the road identified on a map) is required before these numbers can be called measurements.",
+  "irc_assumptions": {
+    "standard": "IRC 35 (Code of Practice for Road Markings) / IRC 86 (urban lane width)",
+    "lane_width_m": 3.5,
+    "dash_pitch_m": 7.5,
+    "dash_pitch_note": "IRC 3.0 m dash + 4.5 m gap. Pitch is the scale anchor and validated to 7.52 m mean (sd 0.22) across 5 measured intervals.",
+    "solved_dash_length_m": 3.85,
+    "solved_dash_note": "Dash:gap split was SOLVED from the image, not assumed: forcing the IRC 3.0 m dash gave systematically inconsistent geometry. Measured dash ~3.85 m with ~3.65 m gap. Pitch (the scale-setting quantity) still matches IRC.",
+    "calibration_frame": 154,
+    "reprojection_residual_m": {
+      "mean": 0.163,
+      "max": 0.49
+    }
+  },
+  "mpp_near": 0.0113,
+  "mpp_far": 0.045,
+  "constant_mpp": null,
+  "smooth_window": 5,
+  "min_ref_y": 268.0,
+  "min_ref_y_note": "Speed reported only where the box bottom-centre is at row >= 268.0, i.e. inside the region the homography was fitted over (lane dashes spanned y~268-503 in frame 154). Vehicles further away are still detected and tracked, but carry no speed rather than an extrapolated one.",
+  "speed_limit_kmh": 60.0,
+  "min_violation_frames": 3,
+  "max_plausible_kmh": 100.0,
+  "ignored_regions": [
+    [
+      0.0,
+      355.0,
+      325.0,
+      575.0
+    ]
+  ],
+  "vehicles_with_speed": 48,
+  "violating_vehicles": 22,
+  "WARNING": "Speeds derived from IRC-standard road geometry, NOT from a site-verified measurement. Absolute values are only as correct as those standards are for this specific road. Not valid for enforcement."
+}

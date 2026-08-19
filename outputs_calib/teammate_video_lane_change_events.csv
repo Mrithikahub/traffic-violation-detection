@@ -1,0 +1,7 @@
+vehicle_id,class,from_lane,to_lane,change_frame,change_sec,frames_in_from,frames_in_to
+1,car,inner_lane,outer_zone,14,0.47,14,11
+11,bike,outer_zone,inner_lane,59,1.97,59,22
+11,bike,inner_lane,outer_zone,81,2.7,22,6
+9,car,outer_zone,inner_lane,150,5.0,53,9
+9,car,inner_lane,outer_zone,159,5.3,9,14
+22,bike,outer_zone,inner_lane,306,10.2,47,21

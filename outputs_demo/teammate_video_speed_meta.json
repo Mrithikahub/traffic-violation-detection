@@ -1,0 +1,26 @@
+{
+  "source_video": "data\\video\\teammate_video.mp4",
+  "tracks_csv": "outputs_demo\\teammate_video_tracks.csv",
+  "width": 1280,
+  "height": 624,
+  "fps": 30.0,
+  "scale_model": "linear by row: 0.045 m/px at y=94 -> 0.0113 m/px at y=624",
+  "mpp_near": 0.0113,
+  "mpp_far": 0.045,
+  "constant_mpp": null,
+  "smooth_window": 5,
+  "speed_limit_kmh": 40.0,
+  "min_violation_frames": 3,
+  "max_plausible_kmh": 150.0,
+  "ignored_regions": [
+    [
+      0.0,
+      355.0,
+      325.0,
+      575.0
+    ]
+  ],
+  "vehicles_with_speed": 116,
+  "violating_vehicles": 26,
+  "WARNING": "Speeds are indicative only - assumed scale, no camera calibration. Not valid for enforcement."
+}

@@ -1,0 +1,97 @@
+{
+  "model": "yolov8s.pt",
+  "conf": 0.1,
+  "imgsz": 640,
+  "total_gt_boxes": 2112,
+  "scored_gt_boxes": 1756,
+  "unmatchable_boxes": 356,
+  "coverage_gap_pct": 16.86,
+  "localisation": {
+    "TP": 1097,
+    "FP": 1198,
+    "FN": 659
+  },
+  "with_class": {
+    "TP": 981,
+    "FP": 1314,
+    "FN": 775
+  },
+  "gt_per_canonical": {
+    "bike": 1019,
+    "car": 582,
+    "bus": 102,
+    "truck": 53
+  },
+  "hit_per_canonical": {
+    "bike": 457,
+    "car": 527,
+    "bus": 76,
+    "truck": 37
+  },
+  "hit_with_class_per_canonical": {
+    "bike": 424,
+    "car": 465,
+    "bus": 60,
+    "truck": 32
+  },
+  "gt_per_dataset_class": {
+    "Two-wheeler": 990,
+    "Bicycle": 29,
+    "SUV": 89,
+    "LCV": 85,
+    "Hatchback": 202,
+    "Sedan": 127,
+    "MUV": 60,
+    "Bus": 81,
+    "Van": 19,
+    "Mini-bus": 4,
+    "Truck": 53,
+    "Tempo-traveller": 17
+  },
+  "hit_per_dataset_class": {
+    "Two-wheeler": 440,
+    "Bicycle": 17,
+    "SUV": 84,
+    "LCV": 65,
+    "Hatchback": 190,
+    "Sedan": 117,
+    "MUV": 56,
+    "Bus": 58,
+    "Van": 15,
+    "Tempo-traveller": 16,
+    "Truck": 37,
+    "Mini-bus": 2
+  },
+  "label_errors": {
+    "car -> bus": 18,
+    "car -> truck": 77,
+    "bike -> car": 40,
+    "bus -> truck": 8,
+    "truck -> bus": 3,
+    "truck -> car": 3,
+    "bus -> car": 10,
+    "bike -> truck": 1
+  },
+  "dataset_map": {
+    "Hatchback": "car",
+    "Sedan": "car",
+    "SUV": "car",
+    "MUV": "car",
+    "LCV": "car",
+    "Bus": "bus",
+    "Truck": "truck",
+    "Two-wheeler": "bike",
+    "Bicycle": "bike",
+    "Van": "car",
+    "Mini-bus": "bus",
+    "Tempo-traveller": "bus"
+  },
+  "assumed_map": {
+    "Van": "car",
+    "Mini-bus": "bus",
+    "Tempo-traveller": "bus"
+  },
+  "unmatchable_classes": [
+    "Three-wheeler"
+  ]
+}

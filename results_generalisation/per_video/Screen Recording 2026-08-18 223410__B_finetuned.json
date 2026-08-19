@@ -1,0 +1,24 @@
+{
+  "video": "Screen Recording 2026-08-18 223410.mp4",
+  "frames_processed": 434,
+  "detections": 883,
+  "dets_per_frame": 2.035,
+  "frames_empty": 43,
+  "frames_empty_pct": 9.91,
+  "class_counts": {
+    "car": 860,
+    "bus": 19,
+    "truck": 4
+  },
+  "class_conf_mean": {
+    "car": 0.7327,
+    "bus": 0.5617,
+    "truck": 0.3468
+  },
+  "mean_conf": 0.7273,
+  "domain_specific_detections": 0,
+  "seconds": 97.1,
+  "model": "B_finetuned",
+  "model_path": "runs/detect/runs/bmd45_ft/weights/best.pt",
+  "is_control": false
+}

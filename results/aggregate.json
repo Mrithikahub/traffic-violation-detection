@@ -1,0 +1,109 @@
+{
+  "clips": 254,
+  "frames": 13063,
+  "frames_empty": 253,
+  "detections": 92922,
+  "processing_seconds": 3234.0,
+  "dets_per_frame": {
+    "mean_of_clips": 7.13,
+    "median_of_clips": 4.82,
+    "min": 0.6,
+    "max": 19.42,
+    "p10": 2.22,
+    "p90": 15.11,
+    "pooled": 7.11
+  },
+  "conf_mean_weighted": 0.498,
+  "conf_pct_below_040": 31.59,
+  "class_counts_detections": {
+    "car": 76429,
+    "bike": 1,
+    "bus": 3737,
+    "truck": 12755
+  },
+  "class_counts_vehicles": {
+    "car": 6360,
+    "bike": 0,
+    "bus": 375,
+    "truck": 1181
+  },
+  "tracks": 7916,
+  "tracked_detections": 86320,
+  "untracked_detections": 6602,
+  "track_len": {
+    "mean": 10.9,
+    "median": 4,
+    "p90": 34,
+    "max": 52
+  },
+  "tracks_le_2_frames": 3344,
+  "tracks_le_2_frames_pct": 42.24,
+  "tracks_single_frame": 2389,
+  "tracks_changing_class": 1432,
+  "tracks_changing_class_pct": 18.09,
+  "class_flip_pairs": {
+    "car <-> truck": 1116,
+    "bus <-> truck": 271,
+    "bus <-> car": 129,
+    "bike <-> car": 1
+  },
+  "agreement": {
+    "vehicles": 7916,
+    "mean": 0.9551,
+    "median": 1.0,
+    "unanimous": 6484,
+    "unanimous_pct": 81.91,
+    "below_floor": 292,
+    "below_floor_pct": 3.69
+  },
+  "by_condition": {
+    "traffic:heavy": {
+      "clips": 44,
+      "dets_per_frame_mean": 13.9,
+      "tracks": 1710,
+      "tracks_changing_class_pct": 18.6,
+      "tracks_le_2_frames_pct": 27.19,
+      "conf_mean": 0.513
+    },
+    "traffic:light": {
+      "clips": 165,
+      "dets_per_frame_mean": 3.84,
+      "tracks": 4246,
+      "tracks_changing_class_pct": 16.02,
+      "tracks_le_2_frames_pct": 53.74,
+      "conf_mean": 0.425
+    },
+    "traffic:medium": {
+      "clips": 45,
+      "dets_per_frame_mean": 12.57,
+      "tracks": 1960,
+      "tracks_changing_class_pct": 22.14,
+      "tracks_le_2_frames_pct": 30.46,
+      "conf_mean": 0.5265
+    },
+    "weather:clear": {
+      "clips": 51,
+      "dets_per_frame_mean": 9.48,
+      "tracks": 2004,
+      "tracks_changing_class_pct": 20.26,
+      "tracks_le_2_frames_pct": 40.22,
+      "conf_mean": 0.5055
+    },
+    "weather:overcast": {
+      "clips": 125,
+      "dets_per_frame_mean": 8.49,
+      "tracks": 4492,
+      "tracks_changing_class_pct": 17.61,
+      "tracks_le_2_frames_pct": 38.56,
+      "conf_mean": 0.4984
+    },
+    "weather:rain": {
+      "clips": 78,
+      "dets_per_frame_mean": 3.4,
+      "tracks": 1420,
+      "tracks_changing_class_pct": 16.55,
+      "tracks_le_2_frames_pct": 56.76,
+      "conf_mean": 0.363
+    }
+  }
+}

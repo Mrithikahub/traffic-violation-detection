@@ -1,0 +1,71 @@
+{
+  "video": "data/video/teammate_video.mp4",
+  "output": "outputs_calib\\teammate_video_all_violations.mp4",
+  "fps": 30.0,
+  "layers_present": {
+    "speeding": true,
+    "wrong side": true,
+    "lane change": true,
+    "tailgating": true
+  },
+  "vehicles_flagged_per_layer": {
+    "speeding": 22,
+    "wrong side": 0,
+    "lane change": 4,
+    "tailgating": 19
+  },
+  "peak_simultaneous_per_layer": {
+    "speeding": 4,
+    "wrong side": 0,
+    "lane change": 1,
+    "tailgating": 7
+  },
+  "vehicles_with_multiple_violation_types": 11,
+  "multi_violation_detail": {
+    "9": [
+      "lane change",
+      "tailgating"
+    ],
+    "11": [
+      "lane change",
+      "speeding"
+    ],
+    "20": [
+      "speeding",
+      "tailgating"
+    ],
+    "22": [
+      "lane change",
+      "speeding"
+    ],
+    "23": [
+      "speeding",
+      "tailgating"
+    ],
+    "975": [
+      "speeding",
+      "tailgating"
+    ],
+    "1154": [
+      "speeding",
+      "tailgating"
+    ],
+    "1361": [
+      "speeding",
+      "tailgating"
+    ],
+    "1900": [
+      "speeding",
+      "tailgating"
+    ],
+    "2072": [
+      "speeding",
+      "tailgating"
+    ],
+    "2166": [
+      "speeding",
+      "tailgating"
+    ]
+  },
+  "NOTE": "Presentation layer only. Every flag is read from the individual layers' CSVs; nothing is re-derived here, so this video cannot disagree with them. Thresholds and assumptions are documented in each layer's _meta.json and in KNOWN_LIMITATIONS.md."
+}

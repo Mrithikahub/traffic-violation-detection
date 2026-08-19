@@ -1,0 +1,10 @@
+{
+  "zones": [
+    {"name": "main_carriageway",
+     "polygon": [[200,180],[1280,180],[1280,624],[200,624]],
+     "expected_direction": "toward_camera"},
+    {"name": "opposite_carriageway",
+     "polygon": [[0,180],[200,180],[200,624],[0,624]],
+     "expected_direction": "away_from_camera"}
+  ]
+}

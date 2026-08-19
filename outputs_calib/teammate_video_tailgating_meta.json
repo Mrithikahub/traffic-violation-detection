@@ -1,0 +1,44 @@
+{
+  "source_video": "data\\video\\teammate_video.mp4",
+  "tracks_csv": "outputs_demo\\teammate_video_tracks.csv",
+  "width": 1280,
+  "height": 624,
+  "fps": 30.0,
+  "metric": "centre-to-centre separation in follower-lengths (scale-free; ~1.0 = bumper contact)",
+  "gap_definition": "separation between the two vehicles' ground-contact points, projected on the follower's direction of travel, divided by the follower's box height",
+  "reference_point": "box bottom-centre for ground position; box height as a proxy for vehicle length",
+  "gap_lengths_threshold": 1.5,
+  "min_frames_same_pair": 15,
+  "lateral_tolerance_widths": 0.6,
+  "min_speed_lengths_per_frame": 0.01,
+  "max_pair_iou": 0.45,
+  "smooth_window": 5,
+  "min_box_px": 25.0,
+  "homography_used": true,
+  "speed_csv_used": true,
+  "ignored_regions": [
+    [
+      0.0,
+      355.0,
+      325.0,
+      575.0
+    ]
+  ],
+  "samples_judged": 2912,
+  "skipped": {
+    "skip_follower_slow": 3199,
+    "skip_leader_slow": 585,
+    "skip_overlapping_pair": 17,
+    "skip_small_box": 175,
+    "skip_pair_persistent_overlap": 1
+  },
+  "gap_distribution_lengths": {
+    "p10": 0.61,
+    "median": 1.71,
+    "p90": 6.05
+  },
+  "pairs_ever_close": 105,
+  "pairs_flagged": 21,
+  "ASSUMPTIONS": "Gap is measured in the image using box height as a proxy for vehicle length, and each vehicle's own motion to decide which way is 'ahead'. Scale-free by construction, so no camera calibration is required and the same threshold applies at any distance. A vehicle crossing the view sideways breaks the length proxy and its gaps should not be trusted.",
+  "LIMITATIONS": "The threshold is an ENGINEERING CHOICE, not a legal standard, and is not validated against observed driver behaviour. Queues are excluded by requiring both vehicles to be moving, so slow-moving congestion is deliberately not reported. Vehicles too small, too slow, or too briefly tracked receive no verdict and are NOT counted as safe."
+}

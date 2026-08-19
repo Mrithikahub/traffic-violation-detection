@@ -1,0 +1,28 @@
+{
+  "video": "Screen Recording 2026-08-17 215744.mp4",
+  "frames_processed": 413,
+  "detections": 11277,
+  "dets_per_frame": 27.305,
+  "frames_empty": 0,
+  "frames_empty_pct": 0.0,
+  "class_counts": {
+    "car": 5458,
+    "rickshaw": 523,
+    "bike": 4605,
+    "bus": 689,
+    "truck": 2
+  },
+  "class_conf_mean": {
+    "car": 0.7154,
+    "rickshaw": 0.6013,
+    "bike": 0.6589,
+    "bus": 0.6107,
+    "truck": 0.3508
+  },
+  "mean_conf": 0.6805,
+  "domain_specific_detections": 523,
+  "seconds": 68.5,
+  "model": "B_finetuned",
+  "model_path": "runs/detect/runs/bmd45_ft/weights/best.pt",
+  "is_control": true
+}

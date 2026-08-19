@@ -1,0 +1,26 @@
+{
+  "video": "Screen Recording 2026-08-18 222522.mp4",
+  "frames_processed": 437,
+  "detections": 986,
+  "dets_per_frame": 2.256,
+  "frames_empty": 24,
+  "frames_empty_pct": 5.49,
+  "class_counts": {
+    "car": 755,
+    "bus": 7,
+    "truck": 208,
+    "bike": 16
+  },
+  "class_conf_mean": {
+    "car": 0.6617,
+    "bus": 0.3697,
+    "truck": 0.5988,
+    "bike": 0.3154
+  },
+  "mean_conf": 0.6407,
+  "domain_specific_detections": 0,
+  "seconds": 82.2,
+  "model": "A_stock",
+  "model_path": "yolov8s.pt",
+  "is_control": false
+}

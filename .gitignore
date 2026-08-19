@@ -1,0 +1,74 @@
+# ---------------------------------------------------------------------------
+# Environment
+# ---------------------------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# Datasets (~4.7 GB) — UCSD, WSDOT night, UA-DETRAC, BMD-45, teammate videos.
+# Re-obtain from the sources documented in the BASELINE_*.md reports.
+# ---------------------------------------------------------------------------
+data/
+*.zip
+*.tgz
+*.tar
+*.tar.gz
+
+# ---------------------------------------------------------------------------
+# Model weights (~395 MB). Stock YOLO weights download automatically on first
+# run; the fine-tuned BMD-45 weights are reproducible via train_finetune.py.
+# ---------------------------------------------------------------------------
+*.pt
+*.onnx
+models/
+runs/
+
+# ---------------------------------------------------------------------------
+# Rendered media — annotated videos, calibration frames, preview stills.
+# All regenerable by re-running the layer that produced them.
+# ---------------------------------------------------------------------------
+*.mp4
+*.avi
+*.mkv
+*.jpg
+*.jpeg
+*.png
+*.gif
+
+# ---------------------------------------------------------------------------
+# Bulk pipeline output.
+#
+# The per-clip batch directories hold one tracks CSV + JSON per clip across the
+# 254-clip UCSD runs (~40 MB). They are raw output, not results: the findings
+# that matter are already distilled into aggregate.json and the BASELINE_*.md
+# reports, both of which are kept.
+# ---------------------------------------------------------------------------
+results/*/
+results_v11/*/
+results_v11m/*/
+results_night/*/
+
+# The JSON tracks dump duplicates the CSV of the same name at ~4x the size.
+# The CSV is the documented interchange format (see OUTPUT_FORMAT.md), so the
+# JSON twin is redundant in version control.
+*_tracks.json
+
+# Screen-recording scratch from the violation feasibility scan; the conclusions
+# live in VIOLATION_SCAN.md.
+outputs_scan/Screen Recording*
+
+# ---------------------------------------------------------------------------
+# Deliberately KEPT, despite sitting next to the above:
+#   outputs_calib/*.csv          reference outputs for all 4 violation layers
+#   outputs_*/*_meta.json        thresholds + assumptions behind every layer
+#   outputs_demo/homography.*    site calibration (IRC-based)
+#   outputs_demo/lanes.json      lane boundaries
+#   outputs_demo/zones.json      carriageway zones
+#   results*/aggregate.json      distilled batch results
+#   results*/batch_log.txt       run provenance
+# These are small and are what make the reports and the CSV schema verifiable.
+# ---------------------------------------------------------------------------

@@ -1,0 +1,26 @@
+[23:13:41] found 21 clips in data\wsdot_night\rawvideo
+[23:13:41] already complete: 0   to process now: 21
+[23:13:41] model=yolov8s.pt imgsz=640 conf=0.1 device=cpu start_frame=1
+[23:13:41] tracker cfg: _tracker_bytetrack_conf0.1.yaml
+[23:13:50] [1/21] cctv052x2004080521x01711  dets=   8    0.1/fr  tracks=  0    8.4s  ETA 0:02:48
+[23:13:57] [2/21] cctv052x2004080521x01712  dets=  10    0.2/fr  tracks=  0    7.3s  ETA 0:02:29
+[23:14:05] [3/21] cctv052x2004080521x01713  dets=   6    0.1/fr  tracks=  0    7.8s  ETA 0:02:21
+[23:14:14] [4/21] cctv052x2004080521x01714  dets=  12    0.2/fr  tracks=  0    9.2s  ETA 0:02:19
+[23:14:24] [5/21] cctv052x2004080521x01715  dets=  52    1.0/fr  tracks=  3   10.5s  ETA 0:02:18
+[23:14:35] [6/21] cctv052x2004080521x01716  dets=  29    0.6/fr  tracks=  3   10.6s  ETA 0:02:14
+[23:14:45] [7/21] cctv052x2004080521x01717  dets=  34    0.7/fr  tracks=  3    9.8s  ETA 0:02:07
+[23:14:55] [8/21] cctv052x2004080521x01718  dets=  72    1.4/fr  tracks=  8   10.1s  ETA 0:01:59
+[23:15:05] [9/21] cctv052x2004080521x01719  dets=   3    0.1/fr  tracks=  0   10.3s  ETA 0:01:52
+[23:15:17] [10/21] cctv052x2004080522x01720  dets=  20    0.4/fr  tracks=  0   11.4s  ETA 0:01:45
+[23:15:27] [11/21] cctv052x2004080522x01721  dets=  22    0.4/fr  tracks=  0   10.5s  ETA 0:01:36
+[23:15:38] [12/21] cctv052x2004080522x01722  dets=  10    0.2/fr  tracks=  1   10.4s  ETA 0:01:27
+[23:15:49] [13/21] cctv052x2004080522x01723  dets=  14    0.3/fr  tracks=  0   11.1s  ETA 0:01:18
+[23:16:02] [14/21] cctv052x2004080621x00126  dets=  18    0.3/fr  tracks=  0   13.3s  ETA 0:01:10
+[23:16:14] [15/21] cctv052x2004080621x00127  dets=   6    0.1/fr  tracks=  0   12.5s  ETA 0:01:01
+[23:16:27] [16/21] cctv052x2004080621x00128  dets=  32    0.6/fr  tracks=  1   12.5s  ETA 0:00:51
+[23:16:41] [17/21] cctv052x2004080621x00129  dets=  16    0.3/fr  tracks=  1   14.0s  ETA 0:00:42
+[23:16:53] [18/21] cctv052x2004080622x00137  dets=   9    0.2/fr  tracks=  0   12.4s  ETA 0:00:32
+[23:17:07] [19/21] cctv052x2004080622x00138  dets=   4    0.1/fr  tracks=  0   14.1s  ETA 0:00:21
+[23:17:21] [20/21] cctv052x2004080622x00142  dets=   7    0.1/fr  tracks=  0   13.6s  ETA 0:00:10
+[23:17:37] [21/21] cctv052x2004080622x00143  dets=   1    0.0/fr  tracks=  0   16.4s  ETA 0:00:00
+[23:17:37] processed 21 clips in 0:03:56

@@ -1,0 +1,13 @@
+# Vehicle detection + tracking module
+#
+# Install (CPU-only machine, e.g. Intel integrated graphics):
+#   python -m venv .venv
+#   .venv\Scripts\python.exe -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#   .venv\Scripts\python.exe -m pip install -r requirements.txt
+#
+# On a CUDA machine, drop the --index-url line and install torch normally.
+
+ultralytics>=8.3.0
+lap>=0.5.12          # required by ByteTrack for track association
+opencv-python>=4.9   # pulled in by ultralytics, pinned here as it is used directly
+numpy>=1.24

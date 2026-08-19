@@ -1,0 +1,86 @@
+{
+  "cross_domain": {
+    "A_stock": {
+      "videos": 38,
+      "frames": 17692,
+      "detections": 144484,
+      "dets_per_frame": 8.167,
+      "mean_conf": 0.6162,
+      "class_counts": {
+        "car": 122831,
+        "truck": 17242,
+        "bus": 3987,
+        "bike": 424
+      },
+      "class_pct": {
+        "car": 85.01,
+        "truck": 11.93,
+        "bus": 2.76,
+        "bike": 0.29
+      }
+    },
+    "B_finetuned": {
+      "videos": 38,
+      "frames": 17692,
+      "detections": 155688,
+      "dets_per_frame": 8.8,
+      "mean_conf": 0.689,
+      "class_counts": {
+        "car": 128213,
+        "bike": 10015,
+        "bus": 14094,
+        "truck": 1674,
+        "rickshaw": 1692
+      },
+      "class_pct": {
+        "car": 82.35,
+        "bike": 6.43,
+        "bus": 9.05,
+        "truck": 1.08,
+        "rickshaw": 1.09
+      }
+    }
+  },
+  "control": {
+    "A_stock": {
+      "videos": 1,
+      "frames": 413,
+      "detections": 8081,
+      "dets_per_frame": 19.567,
+      "mean_conf": 0.5609,
+      "class_counts": {
+        "car": 5525,
+        "bike": 1518,
+        "truck": 962,
+        "bus": 76
+      },
+      "class_pct": {
+        "car": 68.37,
+        "bike": 18.78,
+        "truck": 11.9,
+        "bus": 0.94
+      }
+    },
+    "B_finetuned": {
+      "videos": 1,
+      "frames": 413,
+      "detections": 11277,
+      "dets_per_frame": 27.305,
+      "mean_conf": 0.6805,
+      "class_counts": {
+        "car": 5458,
+        "rickshaw": 523,
+        "bike": 4605,
+        "bus": 689,
+        "truck": 2
+      },
+      "class_pct": {
+        "car": 48.4,
+        "rickshaw": 4.64,
+        "bike": 40.84,
+        "bus": 6.11,
+        "truck": 0.02
+      }
+    }
+  }
+}
