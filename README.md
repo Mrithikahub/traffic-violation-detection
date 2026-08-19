@@ -169,7 +169,7 @@ the pipeline, graded by severity. The load-bearing ones:
 | [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md) | Every assumption, graded by severity |
 | [BASELINE_REPORT.md](BASELINE_REPORT.md) | YOLOv8s over 254 UCSD daytime clips |
 | [BASELINE_NIGHT.md](BASELINE_NIGHT.md) | Night / low-light behaviour |
-| [BASELINE_V11.md](BASELINE_V11.md) | YOLOv8s vs YOLOv11s vs YOLOv11m |
+| [BASELINE_V11.md](BASELINE_V11.md) | YOLOv11s over the same 254 clips, for comparison against the v8s baseline |
 | [FINETUNE_RESULTS.md](FINETUNE_RESULTS.md) | BMD-45 fine-tuning, before/after |
 | [GENERALISATION_REPORT.md](GENERALISATION_REPORT.md) | 39-video, 78-run cross-domain test |
 | [HELMET_DETECTION_EVALUATION.md](HELMET_DETECTION_EVALUATION.md) | Why helmet detection was not shipped |

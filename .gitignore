@@ -97,7 +97,11 @@ results_night/
 #   outputs_demo/zones.json      carriageway zones
 #   results/aggregate.json       YOLOv8s baseline — the v8 side of the v8-vs-v11
 #                                comparison, so it stays with results_v11*/
-#   results_v11*/aggregate.json  YOLOv11s / YOLOv11m baselines
+#   results_v11/aggregate.json   YOLOv11s baseline, full 254 clips
+#   results_v11m/batch_log.txt   YOLOv11m run log. NOTE: this run was stopped
+#                                at clip 58/254 and never aggregated, so there
+#                                is no aggregate.json for it and BASELINE_V11.md
+#                                does not report v11m numbers.
 #   results_generalisation/      evidence for KNOWN_LIMITATIONS.md section 5
 #                                (truck collapse, rickshaw hallucination)
 #   results_val*.json            fine-tuning before/after numbers
