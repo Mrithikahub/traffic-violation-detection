@@ -1,0 +1,456 @@
+{
+  "generated_at": "2026-08-22 15:47:36",
+  "weights": "e:\\CDAC Dataset\\CDAC_Workspace\\npr_module\\runs\\detect\\npr_yolov8n_baseline\\weights\\best.pt",
+  "detector_type": "yolo",
+  "ocr_engine": "easyocr",
+  "records": [
+    {
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "image_file": "video5_130.jpg",
+      "image_size_wh": [
+        920,
+        543
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.855,
+      "plate_bbox_crop": [
+        57,
+        411,
+        457,
+        521
+      ],
+      "iou_with_gt": 0.931,
+      "raw_ocr_text": "MH.03.CS.6266",
+      "cleaned_text": "MH03CS6266",
+      "plate_text": "MH03CS6266",
+      "ocr_confidence": 0.849,
+      "plate_type": "INDIAN",
+      "format_type": "STANDARD",
+      "is_valid_indian_format": true,
+      "state_name": "Maharashtra",
+      "processing_time_ms": 621.34
+    },
+    {
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "image_file": "video5_500.jpg",
+      "image_size_wh": [
+        994,
+        1003
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.843,
+      "plate_bbox_crop": [
+        511,
+        301,
+        738,
+        372
+      ],
+      "iou_with_gt": 0.921,
+      "raw_ocr_text": "MH03C3.6266",
+      "cleaned_text": "MH03C36266",
+      "plate_text": "MH03CJ6266",
+      "ocr_confidence": 0.439,
+      "plate_type": "INDIAN",
+      "format_type": "STANDARD",
+      "is_valid_indian_format": true,
+      "state_name": "Maharashtra",
+      "processing_time_ms": 371.09
+    },
+    {
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "image_file": "video6_1140.jpg",
+      "image_size_wh": [
+        1483,
+        1080
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.881,
+      "plate_bbox_crop": [
+        931,
+        366,
+        1271,
+        467
+      ],
+      "iou_with_gt": 0.875,
+      "raw_ocr_text": "MH02 DS 9365",
+      "cleaned_text": "MH02DS9365",
+      "plate_text": "MH02DS9365",
+      "ocr_confidence": 0.717,
+      "plate_type": "INDIAN",
+      "format_type": "STANDARD",
+      "is_valid_indian_format": true,
+      "state_name": "Maharashtra",
+      "processing_time_ms": 359.24
+    },
+    {
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "image_file": "video6_910.jpg",
+      "image_size_wh": [
+        1920,
+        1080
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.855,
+      "plate_bbox_crop": [
+        855,
+        282,
+        1377,
+        418
+      ],
+      "iou_with_gt": 0.88,
+      "raw_ocr_text": "MH02 DS 9365",
+      "cleaned_text": "MH02DS9365",
+      "plate_text": "MH02DS9365",
+      "ocr_confidence": 0.676,
+      "plate_type": "INDIAN",
+      "format_type": "STANDARD",
+      "is_valid_indian_format": true,
+      "state_name": "Maharashtra",
+      "processing_time_ms": 406.65
+    },
+    {
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "image_file": "video8_1350.jpg",
+      "image_size_wh": [
+        527,
+        298
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.9,
+      "plate_bbox_crop": [
+        51,
+        116,
+        168,
+        156
+      ],
+      "iou_with_gt": 0.907,
+      "raw_ocr_text": "MFOiBG 716",
+      "cleaned_text": "MFOIBG716",
+      "plate_text": "MFOIBG716",
+      "ocr_confidence": 0.451,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 328.05
+    },
+    {
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "image_file": "video8_20.jpg",
+      "image_size_wh": [
+        1122,
+        1080
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.854,
+      "plate_bbox_crop": [
+        112,
+        657,
+        290,
+        761
+      ],
+      "iou_with_gt": 0.876,
+      "raw_ocr_text": "Hho2C LCd,J654",
+      "cleaned_text": "HHO2CLCDJ654",
+      "plate_text": "HHO2CLCDJ654",
+      "ocr_confidence": 0.25,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 416.87
+    },
+    {
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "image_file": "video8_790.jpg",
+      "image_size_wh": [
+        1142,
+        1080
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.753,
+      "plate_bbox_crop": [
+        330,
+        434,
+        454,
+        500
+      ],
+      "iou_with_gt": 0.814,
+      "raw_ocr_text": "HH 12 SF 3212",
+      "cleaned_text": "HH12SF3212",
+      "plate_text": "HH12SF3212",
+      "ocr_confidence": 0.98,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 292.53
+    },
+    {
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "image_file": "video9_260.jpg",
+      "image_size_wh": [
+        1920,
+        1080
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.841,
+      "plate_bbox_crop": [
+        0,
+        344,
+        705,
+        548
+      ],
+      "iou_with_gt": 0.831,
+      "raw_ocr_text": "MHOZFN2783",
+      "cleaned_text": "MHOZFN2783",
+      "plate_text": "MH02FN2783",
+      "ocr_confidence": 0.622,
+      "plate_type": "INDIAN",
+      "format_type": "STANDARD",
+      "is_valid_indian_format": true,
+      "state_name": "Maharashtra",
+      "processing_time_ms": 1228.88
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "image_file": "42-1280px-Alberta_1997_license_plate_-_SNX-000_jpg.rf.5f5ae71c2ea5e7557309703b93ffe152.jpg",
+      "image_size_wh": [
+        1280,
+        654
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.928,
+      "plate_bbox_crop": [
+        23,
+        10,
+        1272,
+        654
+      ],
+      "iou_with_gt": 0.932,
+      "raw_ocr_text": "DrEes US O4r 0 JUN bba Alberla SNX \"000 Wild Rose Country 97030607517 8 97",
+      "cleaned_text": "DREESUSO4R0JUNBBAALBERLASNX000WILDROSECOUNTRY97030607517897",
+      "plate_text": "DREESUSO4R0JUNBBAALBERLASNX000WILDROSECOUNTRY97030607517897",
+      "ocr_confidence": 0.565,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 7892.9
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "image_file": "CarLongPlateGen1231_jpg.rf.5262da9a0ae856b18adc04275cf1ee9f.jpg",
+      "image_size_wh": [
+        472,
+        303
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.789,
+      "plate_bbox_crop": [
+        299,
+        255,
+        383,
+        281
+      ],
+      "iou_with_gt": 0.801,
+      "raw_ocr_text": "51F.07973",
+      "cleaned_text": "51F07973",
+      "plate_text": "51F07973",
+      "ocr_confidence": 0.55,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 576.22
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "image_file": "CarLongPlateGen2310_jpg.rf.e2e02c43d0fd1aa9eea2f7b85015acdc.jpg",
+      "image_size_wh": [
+        472,
+        303
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.814,
+      "plate_bbox_crop": [
+        268,
+        158,
+        379,
+        192
+      ],
+      "iou_with_gt": 0.871,
+      "raw_ocr_text": "51A .897.1L",
+      "cleaned_text": "51A8971L",
+      "plate_text": "51A8971L",
+      "ocr_confidence": 0.286,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 1055.69
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "image_file": "CarLongPlateGen3407_jpg.rf.a6e5af41538fdfa730f4820d589970cc.jpg",
+      "image_size_wh": [
+        472,
+        303
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.805,
+      "plate_bbox_crop": [
+        266,
+        149,
+        367,
+        221
+      ],
+      "iou_with_gt": 0.853,
+      "raw_ocr_text": "614 691,72",
+      "cleaned_text": "61469172",
+      "plate_text": "61469172",
+      "ocr_confidence": 0.597,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 343.39
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "image_file": "CarLongPlateGen998_jpg.rf.08124bcec86fbde5a451e8aee0946197.jpg",
+      "image_size_wh": [
+        472,
+        303
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.788,
+      "plate_bbox_crop": [
+        217,
+        142,
+        260,
+        154
+      ],
+      "iou_with_gt": 0.863,
+      "raw_ocr_text": "1672w9]",
+      "cleaned_text": "1672W9",
+      "plate_text": "1672W9",
+      "ocr_confidence": 0.071,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 1131.46
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "image_file": "pic_259_jpg.rf.bdeedbfb55112ba4c5d924fe8e736fb0.jpg",
+      "image_size_wh": [
+        1300,
+        953
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.836,
+      "plate_bbox_crop": [
+        308,
+        302,
+        993,
+        607
+      ],
+      "iou_with_gt": 0.875,
+      "raw_ocr_text": "MU 7227 nzIMwNMtVa?",
+      "cleaned_text": "MU7227NZIMWNMTVA",
+      "plate_text": "MU7227NZIMWNMTVA",
+      "ocr_confidence": 0.313,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 1647.22
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "image_file": "xemay1573_jpg.rf.6b2d6461a87d8babbb107ee90edba7cd.jpg",
+      "image_size_wh": [
+        472,
+        303
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.87,
+      "plate_bbox_crop": [
+        188,
+        209,
+        290,
+        297
+      ],
+      "iou_with_gt": 0.901,
+      "raw_ocr_text": "59-B1 338.72",
+      "cleaned_text": "59B133872",
+      "plate_text": "59B133872",
+      "ocr_confidence": 0.507,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 372.53
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "image_file": "xemay424_jpg.rf.6ee2887c5e4e8dd45f69501451592b57.jpg",
+      "image_size_wh": [
+        472,
+        303
+      ],
+      "gt_instances": 1,
+      "plate_detected": true,
+      "detection_confidence": 0.885,
+      "plate_bbox_crop": [
+        171,
+        135,
+        262,
+        213
+      ],
+      "iou_with_gt": 0.869,
+      "raw_ocr_text": "59-C1 39916",
+      "cleaned_text": "59C139916",
+      "plate_text": "59C139916",
+      "ocr_confidence": 0.742,
+      "plate_type": "UNKNOWN",
+      "format_type": "UNKNOWN",
+      "is_valid_indian_format": false,
+      "state_name": null,
+      "processing_time_ms": 270.69
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Caches and test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE & OS specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Large Datasets (Images and Labels)
+indian_no_plates_B/
+no_plates_train_C/
+no_plates_test_C/
+*.zip
+*.tar
+*.tar.gz
+
+# Ultralytics Training Run Artifacts - Exclude intermediate epoch checkpoints and large mosaics
+runs/**/weights/epoch*.pt
+runs/**/weights/last.pt
+runs/**/train_batch*.jpg
+runs/**/val_batch*.jpg
+
+# Ensure the production trained weights (best.pt) is NEVER ignored
+!runs/**/weights/best.pt
+
+# Temporary development audit images and progress files
+audit_outputs/annotated_*.jpg
+audit_outputs/audit_*.jpg
+final_evaluation_outputs/progress.json

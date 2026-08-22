@@ -1,0 +1,12 @@
+# Number Plate Dataset Configuration (Combined Dual-Mode: Indian + Foreign)
+# CDAC Intelligent Traffic Monitoring System - NPR Module
+
+path: "e:/CDAC Dataset/CDAC_Workspace/npr_module/configs/manifests"
+train: "train_combined.txt"
+val: "val_combined.txt"
+test: "test_foreign.txt"
+
+# Classes
+nc: 1
+names:
+  0: license_plate

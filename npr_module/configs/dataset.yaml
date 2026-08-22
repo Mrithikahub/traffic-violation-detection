@@ -1,0 +1,13 @@
+# Number Plate Dataset Configuration
+# CDAC Intelligent Traffic Monitoring System - NPR Module
+
+path: "e:/CDAC Dataset/CDAC_Workspace"
+train: "no_plates_train_C/images"
+val: "no_plates_train_C/images"
+test: "no_plates_test_C/images"
+
+# Classes
+names:
+  0: License_Plate
+
+nc: 1

@@ -1,0 +1,805 @@
+{
+  "generated_at": "2026-08-22 22:56:27",
+  "records": [
+    {
+      "group": "Indian Validation",
+      "image_file": "video5_130.jpg",
+      "image_size": [
+        920,
+        543
+      ],
+      "crop_size": [
+        400,
+        110
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.855,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "composite_score": 0.9117,
+      "raw_ocr": "MH.03.CS.6266",
+      "plate_text": "MH03CS6266",
+      "ocr_conf": 0.866,
+      "plate_type": "INDIAN",
+      "is_valid_indian": true,
+      "proc_ms": 888.35,
+      "baseline_raw": "MH.03.CS.6266",
+      "baseline_type": "INDIAN",
+      "baseline_valid": true,
+      "prev_raw": "MH.03.CS.6266",
+      "prev_type": "INDIAN",
+      "prev_valid": true,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "MH.03.CS.6266",
+          "conf": 0.866,
+          "score": 0.9117,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "MH.03.CS.6266",
+          "conf": 0.849,
+          "score": 0.9048,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "",
+          "conf": 0.0,
+          "score": 0.0,
+          "ran": false
+        }
+      }
+    },
+    {
+      "group": "Indian Validation",
+      "image_file": "video5_500.jpg",
+      "image_size": [
+        994,
+        1003
+      ],
+      "crop_size": [
+        227,
+        71
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.843,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "composite_score": 0.762,
+      "raw_ocr": "MH03C3.6266",
+      "plate_text": "MH03CJ6266",
+      "ocr_conf": 0.439,
+      "plate_type": "INDIAN",
+      "is_valid_indian": true,
+      "proc_ms": 637.76,
+      "baseline_raw": "MH03C5.6266",
+      "baseline_type": "INDIAN",
+      "baseline_valid": true,
+      "prev_raw": "MH03C3.6266",
+      "prev_type": "INDIAN",
+      "prev_valid": true,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "MH03C5.6266",
+          "conf": 0.433,
+          "score": 0.7594,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "MH03C3.6266",
+          "conf": 0.439,
+          "score": 0.762,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "",
+          "conf": 0.0,
+          "score": 0.0,
+          "ran": false
+        }
+      }
+    },
+    {
+      "group": "Indian Validation",
+      "image_file": "video6_1140.jpg",
+      "image_size": [
+        1483,
+        1080
+      ],
+      "crop_size": [
+        340,
+        101
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.881,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "composite_score": 0.951,
+      "raw_ocr": "MHO2 DS 9365",
+      "plate_text": "MH02DS9365",
+      "ocr_conf": 0.94,
+      "plate_type": "INDIAN",
+      "is_valid_indian": true,
+      "proc_ms": 629.34,
+      "baseline_raw": "9365MHO2 DS",
+      "baseline_type": "UNKNOWN",
+      "baseline_valid": false,
+      "prev_raw": "MH02 DS 9365",
+      "prev_type": "INDIAN",
+      "prev_valid": true,
+      "vs_baseline": "IMPROVED (gained valid Indian)",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "MHO2 DS 9365",
+          "conf": 0.94,
+          "score": 0.951,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "MH02 DS 9365",
+          "conf": 0.717,
+          "score": 0.862,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "",
+          "conf": 0.0,
+          "score": 0.0,
+          "ran": false
+        }
+      }
+    },
+    {
+      "group": "Indian Validation",
+      "image_file": "video6_910.jpg",
+      "image_size": [
+        1920,
+        1080
+      ],
+      "crop_size": [
+        522,
+        136
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.855,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "composite_score": 0.8771,
+      "raw_ocr": "MH02 DS 9365",
+      "plate_text": "MH02DS9365",
+      "ocr_conf": 0.755,
+      "plate_type": "INDIAN",
+      "is_valid_indian": true,
+      "proc_ms": 691.59,
+      "baseline_raw": "MH02 DS 9365",
+      "baseline_type": "INDIAN",
+      "baseline_valid": true,
+      "prev_raw": "MH02 DS 9365",
+      "prev_type": "INDIAN",
+      "prev_valid": true,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "MH02 DS 9365",
+          "conf": 0.755,
+          "score": 0.8771,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "MH02 DS 9365",
+          "conf": 0.676,
+          "score": 0.8453,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "",
+          "conf": 0.0,
+          "score": 0.0,
+          "ran": false
+        }
+      }
+    },
+    {
+      "group": "Indian Validation",
+      "image_file": "video8_1350.jpg",
+      "image_size": [
+        527,
+        298
+      ],
+      "crop_size": [
+        117,
+        40
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.9,
+      "selected_variant": "V2_ADAPTIVE_BINARIZE",
+      "composite_score": 0.758,
+      "raw_ocr": "mh018G 716",
+      "plate_text": "MH01B6716",
+      "ocr_conf": 0.433,
+      "plate_type": "INDIAN",
+      "is_valid_indian": true,
+      "proc_ms": 878.27,
+      "baseline_raw": "Mh0186716",
+      "baseline_type": "INDIAN",
+      "baseline_valid": true,
+      "prev_raw": "MFOiBG 716",
+      "prev_type": "UNKNOWN",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "IMPROVED (gained valid Indian)",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "MAe 0186 716",
+          "conf": 0.578,
+          "score": 0.7558,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "MFOiBG 716",
+          "conf": 0.451,
+          "score": 0.7053,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "mh018G 716",
+          "conf": 0.433,
+          "score": 0.758,
+          "ran": true
+        }
+      }
+    },
+    {
+      "group": "Indian Validation",
+      "image_file": "video8_20.jpg",
+      "image_size": [
+        1122,
+        1080
+      ],
+      "crop_size": [
+        178,
+        104
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.854,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "composite_score": 0.5963,
+      "raw_ocr": "Hho2C LCd,J654",
+      "plate_text": "HHO2CLCDJ654",
+      "ocr_conf": 0.25,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 599.22,
+      "baseline_raw": "'CbMhO2C1,3654]",
+      "baseline_type": "UNKNOWN",
+      "baseline_valid": false,
+      "prev_raw": "Hho2C LCd,J654",
+      "prev_type": "UNKNOWN",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "MhO2C 'Cb 1,3654]",
+          "conf": 0.169,
+          "score": 0.4986,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "Hho2C LCd,J654",
+          "conf": 0.25,
+          "score": 0.5963,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "Khl Li2C0,J654",
+          "conf": 0.129,
+          "score": 0.5357,
+          "ran": true
+        }
+      }
+    },
+    {
+      "group": "Indian Validation",
+      "image_file": "video8_790.jpg",
+      "image_size": [
+        1142,
+        1080
+      ],
+      "crop_size": [
+        124,
+        66
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.753,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "composite_score": 0.9438,
+      "raw_ocr": "HH 12 SF 3212",
+      "plate_text": "HH12SF3212",
+      "ocr_conf": 0.98,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 481.02,
+      "baseline_raw": "HH 12SF3212",
+      "baseline_type": "UNKNOWN",
+      "baseline_valid": false,
+      "prev_raw": "HH 12 SF 3212",
+      "prev_type": "UNKNOWN",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "HH 12 SF 3212",
+          "conf": 0.978,
+          "score": 0.943,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "HH 12 SF 3212",
+          "conf": 0.98,
+          "score": 0.9438,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "",
+          "conf": 0.0,
+          "score": 0.0,
+          "ran": false
+        }
+      }
+    },
+    {
+      "group": "Indian Validation",
+      "image_file": "video9_260.jpg",
+      "image_size": [
+        1920,
+        1080
+      ],
+      "crop_size": [
+        705,
+        204
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.841,
+      "selected_variant": "V2_ADAPTIVE_BINARIZE",
+      "composite_score": 0.8488,
+      "raw_ocr": "MHOZFN2783",
+      "plate_text": "MH02FN2783",
+      "ocr_conf": 0.622,
+      "plate_type": "INDIAN",
+      "is_valid_indian": true,
+      "proc_ms": 1949.56,
+      "baseline_raw": "\"Wh02FN2783",
+      "baseline_type": "UNKNOWN",
+      "baseline_valid": false,
+      "prev_raw": "MHOZFN2783",
+      "prev_type": "INDIAN",
+      "prev_valid": true,
+      "vs_baseline": "IMPROVED (gained valid Indian)",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "\"Wh02FN2783",
+          "conf": 0.117,
+          "score": 0.5405,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "THHOzFH2783",
+          "conf": 0.18,
+          "score": 0.5899,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "MHOZFN2783",
+          "conf": 0.622,
+          "score": 0.8488,
+          "ran": true
+        }
+      }
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_file": "42-1280px-Alberta_1997_license_plate_-_SNX-000_jpg.rf.5f5ae71c2ea5e7557309703b93ffe152.jpg",
+      "image_size": [
+        1280,
+        654
+      ],
+      "crop_size": [
+        1249,
+        644
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.928,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "composite_score": 0.7422,
+      "raw_ocr": "DrEes US O4r 0 JUN bba Alberla SNX \"000 Wild Rose Country 97030607517 8 97",
+      "plate_text": "DREESUSO4R0JUNBBAALBERLASNX000WILDROSECOUNTRY97030607517897",
+      "ocr_conf": 0.565,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 6016.21,
+      "baseline_raw": "\u2014",
+      "baseline_type": "?",
+      "baseline_valid": false,
+      "prev_raw": "\u2014",
+      "prev_type": "?",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "DrBB VS OarOf JUN Abea Aberla SNX - 000 Wild Rose Counlry 97030607517 8 97",
+          "conf": 0.468,
+          "score": 0.6935,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "DrEes US O4r 0 JUN bba Alberla SNX \"000 Wild Rose Country 97030607517 8 97",
+          "conf": 0.565,
+          "score": 0.7422,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "",
+          "conf": 0.0,
+          "score": 0.0,
+          "ran": false
+        }
+      }
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_file": "CarLongPlateGen1231_jpg.rf.5262da9a0ae856b18adc04275cf1ee9f.jpg",
+      "image_size": [
+        472,
+        303
+      ],
+      "crop_size": [
+        84,
+        26
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.789,
+      "selected_variant": "V2_ADAPTIVE_BINARIZE",
+      "composite_score": 0.9203,
+      "raw_ocr": "51F.07973",
+      "plate_text": "51F07973",
+      "ocr_conf": 0.885,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 903.67,
+      "baseline_raw": "\u2014",
+      "baseline_type": "?",
+      "baseline_valid": false,
+      "prev_raw": "\u2014",
+      "prev_type": "?",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "51F.079.73",
+          "conf": 0.569,
+          "score": 0.7443,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "51F.07973",
+          "conf": 0.55,
+          "score": 0.7526,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "51F.07973",
+          "conf": 0.885,
+          "score": 0.9203,
+          "ran": true
+        }
+      }
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_file": "CarLongPlateGen2310_jpg.rf.e2e02c43d0fd1aa9eea2f7b85015acdc.jpg",
+      "image_size": [
+        472,
+        303
+      ],
+      "crop_size": [
+        111,
+        34
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.814,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "composite_score": 0.669,
+      "raw_ocr": "614.897 14",
+      "plate_text": "61489714",
+      "ocr_conf": 0.418,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 823.97,
+      "baseline_raw": "\u2014",
+      "baseline_type": "?",
+      "baseline_valid": false,
+      "prev_raw": "\u2014",
+      "prev_type": "?",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "614.897 14",
+          "conf": 0.418,
+          "score": 0.669,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "61A 897 14",
+          "conf": 0.166,
+          "score": 0.5429,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "51A .897.1L",
+          "conf": 0.286,
+          "score": 0.5886,
+          "ran": true
+        }
+      }
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_file": "CarLongPlateGen3407_jpg.rf.a6e5af41538fdfa730f4820d589970cc.jpg",
+      "image_size": [
+        472,
+        303
+      ],
+      "crop_size": [
+        101,
+        72
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.805,
+      "selected_variant": "V2_ADAPTIVE_BINARIZE",
+      "composite_score": 0.7956,
+      "raw_ocr": "69172 6JA:",
+      "plate_text": "691726JA",
+      "ocr_conf": 0.671,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 473.31,
+      "baseline_raw": "\u2014",
+      "baseline_type": "?",
+      "baseline_valid": false,
+      "prev_raw": "\u2014",
+      "prev_type": "?",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "1",
+          "conf": 0.155,
+          "score": 0.3148,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "614 691,72",
+          "conf": 0.597,
+          "score": 0.7586,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "69172 6JA:",
+          "conf": 0.671,
+          "score": 0.7956,
+          "ran": true
+        }
+      }
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_file": "CarLongPlateGen998_jpg.rf.08124bcec86fbde5a451e8aee0946197.jpg",
+      "image_size": [
+        472,
+        303
+      ],
+      "crop_size": [
+        43,
+        12
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.788,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "composite_score": 0.4756,
+      "raw_ocr": "Irzeu",
+      "plate_text": "IRZEU",
+      "ocr_conf": 0.176,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 1079.24,
+      "baseline_raw": "\u2014",
+      "baseline_type": "?",
+      "baseline_valid": false,
+      "prev_raw": "\u2014",
+      "prev_type": "?",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "Gr7*09",
+          "conf": 0.051,
+          "score": 0.3798,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "Irzeu",
+          "conf": 0.176,
+          "score": 0.4756,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "1672w9]",
+          "conf": 0.071,
+          "score": 0.4318,
+          "ran": true
+        }
+      }
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_file": "pic_259_jpg.rf.bdeedbfb55112ba4c5d924fe8e736fb0.jpg",
+      "image_size": [
+        1300,
+        953
+      ],
+      "crop_size": [
+        685,
+        305
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.836,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "composite_score": 0.6249,
+      "raw_ocr": "MU 7227 nzIMwNMtVa?",
+      "plate_text": "MU7227NZIMWNMTVA",
+      "ocr_conf": 0.313,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 2715.46,
+      "baseline_raw": "M8 7227 nz9nnartua?",
+      "baseline_type": "UNKNOWN",
+      "baseline_valid": false,
+      "prev_raw": "MU 7227 nzIMwNMtVa?",
+      "prev_type": "UNKNOWN",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "M8 7227 nz9nnartua?",
+          "conf": 0.25,
+          "score": 0.5933,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "MU 7227 nzIMwNMtVa?",
+          "conf": 0.313,
+          "score": 0.6249,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "M8 7227 OtaXrVMtva3 qj :",
+          "conf": 0.245,
+          "score": 0.5807,
+          "ran": true
+        }
+      }
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_file": "xemay1573_jpg.rf.6b2d6461a87d8babbb107ee90edba7cd.jpg",
+      "image_size": [
+        472,
+        303
+      ],
+      "crop_size": [
+        102,
+        88
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.87,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "composite_score": 0.8168,
+      "raw_ocr": "59-B7 338, 12",
+      "plate_text": "59B733812",
+      "ocr_conf": 0.757,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 336.17,
+      "baseline_raw": "59-B712338,",
+      "baseline_type": "UNKNOWN",
+      "baseline_valid": false,
+      "prev_raw": "59-B1 338.72",
+      "prev_type": "UNKNOWN",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "59-B7 338, 12",
+          "conf": 0.757,
+          "score": 0.8168,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "59-B1 338.72",
+          "conf": 0.507,
+          "score": 0.7033,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "",
+          "conf": 0.0,
+          "score": 0.0,
+          "ran": false
+        }
+      }
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_file": "xemay424_jpg.rf.6ee2887c5e4e8dd45f69501451592b57.jpg",
+      "image_size": [
+        472,
+        303
+      ],
+      "crop_size": [
+        91,
+        78
+      ],
+      "plate_detected": true,
+      "detection_conf": 0.885,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "composite_score": 0.8349,
+      "raw_ocr": "59-C1 39916",
+      "plate_text": "59C139916",
+      "ocr_conf": 0.742,
+      "plate_type": "UNKNOWN",
+      "is_valid_indian": false,
+      "proc_ms": 362.53,
+      "baseline_raw": "59-C1 399.1 6",
+      "baseline_type": "UNKNOWN",
+      "baseline_valid": false,
+      "prev_raw": "59-C1 39916",
+      "prev_type": "UNKNOWN",
+      "prev_valid": false,
+      "vs_baseline": "SAME",
+      "vs_prev": "SAME",
+      "candidates": {
+        "V0_COLOR_CLAHE": {
+          "text": "59-C1 399.1 6",
+          "conf": 0.482,
+          "score": 0.6796,
+          "ran": true
+        },
+        "V1_GRAY_CLAHE": {
+          "text": "59-C1 39916",
+          "conf": 0.742,
+          "score": 0.8349,
+          "ran": true
+        },
+        "V2_ADAPTIVE_BINARIZE": {
+          "text": "",
+          "conf": 0.0,
+          "score": 0.0,
+          "ran": false
+        }
+      }
+    }
+  ]
+}

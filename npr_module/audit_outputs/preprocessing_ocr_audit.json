@@ -1,0 +1,1167 @@
+{
+  "generated_at": "2026-08-22 15:32:09",
+  "weights": "e:\\CDAC Dataset\\CDAC_Workspace\\npr_module\\runs\\detect\\npr_yolov8n_baseline\\weights\\best.pt",
+  "images_evaluated": 16,
+  "variants_tested": [
+    "V0_Baseline",
+    "V1_HighRes_Upscale",
+    "V2_Grayscale_CLAHE",
+    "V3_Adaptive_Binarize",
+    "V4_Sharpen_Unsharp",
+    "V5_LineAware_Adaptive"
+  ],
+  "results": [
+    {
+      "image_file": "video5_130.jpg",
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "crop_dimensions_wh": [
+        448,
+        122
+      ],
+      "crop_aspect_ratio": 3.67,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "MH.03.CS.6266",
+          "ocr_confidence": 0.866,
+          "cleaned_text": "MH03CS6266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 540.3
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "MH.03.CS.6266",
+          "ocr_confidence": 0.536,
+          "cleaned_text": "MH03CS6266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 646.4
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "MH.03.CS.6266",
+          "ocr_confidence": 0.838,
+          "cleaned_text": "MH03CS6266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 381.9
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "MH.03.CS.6266",
+          "ocr_confidence": 0.639,
+          "cleaned_text": "MH03CS6266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 336.4
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "MH.03.CS.6266",
+          "ocr_confidence": 0.948,
+          "cleaned_text": "MH03CS6266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 483.7
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "MH.03.CS.6266",
+          "ocr_confidence": 0.969,
+          "cleaned_text": "MH03CS6266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 344.0
+        }
+      }
+    },
+    {
+      "image_file": "video5_500.jpg",
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "crop_dimensions_wh": [
+        253,
+        79
+      ],
+      "crop_aspect_ratio": 3.2,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "MH03C5.6266",
+          "ocr_confidence": 0.433,
+          "cleaned_text": "MH03C56266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 295.3
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "MH03CS.6266",
+          "ocr_confidence": 0.359,
+          "cleaned_text": "MH03CS6266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 505.8
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "MH03CS.6266",
+          "ocr_confidence": 0.399,
+          "cleaned_text": "MH03CS6266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 300.7
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "M0acs6266",
+          "ocr_confidence": 0.438,
+          "cleaned_text": "M0ACS6266",
+          "standardized_text": "M0ACS6266",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 289.3
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "MH03C3.6266",
+          "ocr_confidence": 0.638,
+          "cleaned_text": "MH03C36266",
+          "standardized_text": "MH03CJ6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 395.4
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "MH03CS.6266",
+          "ocr_confidence": 0.544,
+          "cleaned_text": "MH03CS6266",
+          "standardized_text": "MH03CS6266",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 310.9
+        }
+      }
+    },
+    {
+      "image_file": "video6_1140.jpg",
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "crop_dimensions_wh": [
+        380,
+        113
+      ],
+      "crop_aspect_ratio": 3.36,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "MHO2 DS 9365",
+          "ocr_confidence": 0.94,
+          "cleaned_text": "MHO2DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 298.6
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "MH02 DS 9365",
+          "ocr_confidence": 0.703,
+          "cleaned_text": "MH02DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 536.6
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "MH02DS9365]",
+          "ocr_confidence": 0.783,
+          "cleaned_text": "MH02DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 293.1
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "MH02 DS9365",
+          "ocr_confidence": 0.662,
+          "cleaned_text": "MH02DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 279.6
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "MH02 DS 9365]",
+          "ocr_confidence": 0.489,
+          "cleaned_text": "MH02DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 405.8
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "MH02 DS 9365]",
+          "ocr_confidence": 0.414,
+          "cleaned_text": "MH02DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 274.6
+        }
+      }
+    },
+    {
+      "image_file": "video6_910.jpg",
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "crop_dimensions_wh": [
+        584,
+        152
+      ],
+      "crop_aspect_ratio": 3.84,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "MH02 DS 9365",
+          "ocr_confidence": 0.755,
+          "cleaned_text": "MH02DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 332.5
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "MH02 DS 9365",
+          "ocr_confidence": 0.498,
+          "cleaned_text": "MH02DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 605.7
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "MHO2 DS 9365",
+          "ocr_confidence": 0.793,
+          "cleaned_text": "MHO2DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 380.4
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "MH02 DS9365",
+          "ocr_confidence": 0.366,
+          "cleaned_text": "MH02DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 354.6
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "MHO2 DS 9365",
+          "ocr_confidence": 0.68,
+          "cleaned_text": "MHO2DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 426.2
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "MH02 DS 9365",
+          "ocr_confidence": 0.724,
+          "cleaned_text": "MH02DS9365",
+          "standardized_text": "MH02DS9365",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 325.7
+        }
+      }
+    },
+    {
+      "image_file": "video8_1350.jpg",
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "crop_dimensions_wh": [
+        131,
+        44
+      ],
+      "crop_aspect_ratio": 2.98,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "Mh 0186 716",
+          "ocr_confidence": 0.493,
+          "cleaned_text": "MH0186716",
+          "standardized_text": "MH01B6716",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 288.5
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "Mh0186716",
+          "ocr_confidence": 0.141,
+          "cleaned_text": "MH0186716",
+          "standardized_text": "MH01B6716",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 482.9
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "MAOiBG 716",
+          "ocr_confidence": 0.67,
+          "cleaned_text": "MAOIBG716",
+          "standardized_text": "MAOIBG716",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 288.2
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "mho18G 716 \"",
+          "ocr_confidence": 0.432,
+          "cleaned_text": "MHO18G716",
+          "standardized_text": "MH01B6716",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 283.6
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "M018G716",
+          "ocr_confidence": 0.245,
+          "cleaned_text": "M018G716",
+          "standardized_text": "M018G716",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 410.9
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "Mh0i8g 716",
+          "ocr_confidence": 0.081,
+          "cleaned_text": "MH0I8G716",
+          "standardized_text": "MH01B6716",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 317.7
+        }
+      }
+    },
+    {
+      "image_file": "video8_20.jpg",
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "crop_dimensions_wh": [
+        198,
+        116
+      ],
+      "crop_aspect_ratio": 1.71,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "MhO2C 'Cb 1,3654]",
+          "ocr_confidence": 0.169,
+          "cleaned_text": "MHO2CCB13654",
+          "standardized_text": "MH02CCBI3654",
+          "plate_type": "INDIAN",
+          "is_valid_indian": false,
+          "format_type": "NON_STANDARD_INDIAN",
+          "processing_time_ms": 197.6
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "Hho2 Cd,_ ),3654",
+          "ocr_confidence": 0.202,
+          "cleaned_text": "HHO2CD3654",
+          "standardized_text": "HHO2CD3654",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 340.6
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "Mh,_z,CD,^ 13634",
+          "ocr_confidence": 0.236,
+          "cleaned_text": "MHZCD13634",
+          "standardized_text": "MH2CDI3634",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 225.9
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "Mhi2cd; 13654",
+          "ocr_confidence": 0.308,
+          "cleaned_text": "MHI2CD13654",
+          "standardized_text": "MH12CDI3654",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 187.4
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "HHO2C CD,3654",
+          "ocr_confidence": 0.403,
+          "cleaned_text": "HHO2CCD3654",
+          "standardized_text": "HHO2CCD3654",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 244.5
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "Hho2 Cd, ),3654",
+          "ocr_confidence": 0.22,
+          "cleaned_text": "HHO2CD3654",
+          "standardized_text": "HHO2CD3654",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 300.9
+        }
+      }
+    },
+    {
+      "image_file": "video8_790.jpg",
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "crop_dimensions_wh": [
+        138,
+        72
+      ],
+      "crop_aspect_ratio": 1.92,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "HH 12 SF 3212",
+          "ocr_confidence": 0.978,
+          "cleaned_text": "HH12SF3212",
+          "standardized_text": "HH12SF3212",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 215.1
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "HH 12 SF 3212",
+          "ocr_confidence": 0.982,
+          "cleaned_text": "HH12SF3212",
+          "standardized_text": "HH12SF3212",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 383.5
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "HH 12 SF 3212",
+          "ocr_confidence": 0.972,
+          "cleaned_text": "HH12SF3212",
+          "standardized_text": "HH12SF3212",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 236.8
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "MH 12 SF 3212",
+          "ocr_confidence": 0.735,
+          "cleaned_text": "MH12SF3212",
+          "standardized_text": "MH12SF3212",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 218.3
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "HH 12 SF 3212",
+          "ocr_confidence": 0.985,
+          "cleaned_text": "HH12SF3212",
+          "standardized_text": "HH12SF3212",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 300.3
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "HH 12 SF 3212",
+          "ocr_confidence": 0.991,
+          "cleaned_text": "HH12SF3212",
+          "standardized_text": "HH12SF3212",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 366.9
+        }
+      }
+    },
+    {
+      "image_file": "video9_260.jpg",
+      "group": "Indian Validation",
+      "expected_label": "INDIAN",
+      "crop_dimensions_wh": [
+        747,
+        228
+      ],
+      "crop_aspect_ratio": 3.28,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "\"Wh02FN2783",
+          "ocr_confidence": 0.117,
+          "cleaned_text": "WH02FN2783",
+          "standardized_text": "WH02FN2783",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 636.8
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "THHO2FH2783",
+          "ocr_confidence": 0.116,
+          "cleaned_text": "THHO2FH2783",
+          "standardized_text": "THHO2FH2783",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 595.4
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "THHOzFH2783",
+          "ocr_confidence": 0.18,
+          "cleaned_text": "THHOZFH2783",
+          "standardized_text": "THHOZFH2783",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 592.5
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "MHOZFN2783",
+          "ocr_confidence": 0.622,
+          "cleaned_text": "MHOZFN2783",
+          "standardized_text": "MH02FN2783",
+          "plate_type": "INDIAN",
+          "is_valid_indian": true,
+          "format_type": "STANDARD",
+          "processing_time_ms": 591.4
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "THHO2FH2783",
+          "ocr_confidence": 0.268,
+          "cleaned_text": "THHO2FH2783",
+          "standardized_text": "THHO2FH2783",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 599.4
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "THHO2FH2783",
+          "ocr_confidence": 0.268,
+          "cleaned_text": "THHO2FH2783",
+          "standardized_text": "THHO2FH2783",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 613.0
+        }
+      }
+    },
+    {
+      "image_file": "42-1280px-Alberta_1997_license_plate_-_SNX-000_jpg.rf.5f5ae71c2ea5e7557309703b93ffe152.jpg",
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "crop_dimensions_wh": [
+        1280,
+        654
+      ],
+      "crop_aspect_ratio": 1.96,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "DrBB VS OarOf JUN Abea Aberla SNX - 000 Wild Rose Counlry 97030607517 8 97",
+          "ocr_confidence": 0.468,
+          "cleaned_text": "DRBBVSOAROFJUNABEAABERLASNX000WILDROSECOUNLRY97030607517897",
+          "standardized_text": "DRBBVSOAROFJUNABEAABERLASNX000WILDROSECOUNLRY97030607517897",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 8029.1
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "DrBB VS OarOf JUN Abea Aberla SNX - 000 Wild Rose Counlry 97030607517 8 97",
+          "ocr_confidence": 0.468,
+          "cleaned_text": "DRBBVSOAROFJUNABEAABERLASNX000WILDROSECOUNLRY97030607517897",
+          "standardized_text": "DRBBVSOAROFJUNABEAABERLASNX000WILDROSECOUNLRY97030607517897",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 4786.5
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "DrEes US O4r 0 JUN bba Alberla SNX \"000 Wild Rose Country 97030607517 8 97",
+          "ocr_confidence": 0.565,
+          "cleaned_text": "DREESUSO4R0JUNBBAALBERLASNX000WILDROSECOUNTRY97030607517897",
+          "standardized_text": "DREESUSO4R0JUNBBAALBERLASNX000WILDROSECOUNTRY97030607517897",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 4138.9
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "on VST Gr 0 JUN pun Akbera SNX '000 Wild Rose Country 8 9703060751,3 97 GX",
+          "ocr_confidence": 0.437,
+          "cleaned_text": "ONVSTGR0JUNPUNAKBERASNX000WILDROSECOUNTRY89703060751397GX",
+          "standardized_text": "ONVSTGR0JUNPUNAKBERASNX000WILDROSECOUNTRY89703060751397GX",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 3731.3
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "DCEEB VS OarOf JUN hbea Aberla SNX \"000 Wild Rose Counlry 97030607618 2 97",
+          "ocr_confidence": 0.556,
+          "cleaned_text": "DCEEBVSOAROFJUNHBEAABERLASNX000WILDROSECOUNLRY97030607618297",
+          "standardized_text": "DCEEBVSOAROFJUNHBEAABERLASNX000WILDROSECOUNLRY97030607618297",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 3543.7
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "DCEEB VS OarOf JUN hbea Aberla SNX \"000 Wild Rose Counlry 97030607618 2 97",
+          "ocr_confidence": 0.556,
+          "cleaned_text": "DCEEBVSOAROFJUNHBEAABERLASNX000WILDROSECOUNLRY97030607618297",
+          "standardized_text": "DCEEBVSOAROFJUNHBEAABERLASNX000WILDROSECOUNLRY97030607618297",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 2921.7
+        }
+      }
+    },
+    {
+      "image_file": "CarLongPlateGen1231_jpg.rf.5262da9a0ae856b18adc04275cf1ee9f.jpg",
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "crop_dimensions_wh": [
+        94,
+        28
+      ],
+      "crop_aspect_ratio": 3.36,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "61E.07973",
+          "ocr_confidence": 0.404,
+          "cleaned_text": "61E07973",
+          "standardized_text": "61E07973",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 287.9
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "5IF.07973",
+          "ocr_confidence": 0.281,
+          "cleaned_text": "5IF07973",
+          "standardized_text": "5IF07973",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 556.8
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "S1F-07973",
+          "ocr_confidence": 0.41,
+          "cleaned_text": "S1F07973",
+          "standardized_text": "S1F07973",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 303.0
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "51F.07973",
+          "ocr_confidence": 0.933,
+          "cleaned_text": "51F07973",
+          "standardized_text": "51F07973",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 279.4
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "51F-07973",
+          "ocr_confidence": 0.577,
+          "cleaned_text": "51F07973",
+          "standardized_text": "51F07973",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 383.7
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "51F.07973)",
+          "ocr_confidence": 0.206,
+          "cleaned_text": "51F07973",
+          "standardized_text": "51F07973",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 301.2
+        }
+      }
+    },
+    {
+      "image_file": "CarLongPlateGen2310_jpg.rf.e2e02c43d0fd1aa9eea2f7b85015acdc.jpg",
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "crop_dimensions_wh": [
+        123,
+        38
+      ],
+      "crop_aspect_ratio": 3.24,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "614.897 14",
+          "ocr_confidence": 0.392,
+          "cleaned_text": "61489714",
+          "standardized_text": "61489714",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 263.9
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "514 892.14",
+          "ocr_confidence": 0.173,
+          "cleaned_text": "51489214",
+          "standardized_text": "51489214",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 531.3
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "614 897 14",
+          "ocr_confidence": 0.233,
+          "cleaned_text": "61489714",
+          "standardized_text": "61489714",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 296.0
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "51A 89714",
+          "ocr_confidence": 0.762,
+          "cleaned_text": "51A89714",
+          "standardized_text": "51A89714",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 295.3
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "SiA 892 4",
+          "ocr_confidence": 0.059,
+          "cleaned_text": "SIA8924",
+          "standardized_text": "SIA8924",
+          "plate_type": "FOREIGN",
+          "is_valid_indian": false,
+          "format_type": "FOREIGN_STANDARD",
+          "processing_time_ms": 439.6
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "514 897.14",
+          "ocr_confidence": 0.134,
+          "cleaned_text": "51489714",
+          "standardized_text": "51489714",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 293.5
+        }
+      }
+    },
+    {
+      "image_file": "CarLongPlateGen3407_jpg.rf.a6e5af41538fdfa730f4820d589970cc.jpg",
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "crop_dimensions_wh": [
+        113,
+        80
+      ],
+      "crop_aspect_ratio": 1.41,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "1",
+          "ocr_confidence": 0.155,
+          "cleaned_text": "1",
+          "standardized_text": "1",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 154.9
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "~691,72 B14:",
+          "ocr_confidence": 0.308,
+          "cleaned_text": "69172B14",
+          "standardized_text": "69172B14",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 294.4
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "614 691,72",
+          "ocr_confidence": 0.547,
+          "cleaned_text": "61469172",
+          "standardized_text": "61469172",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 171.5
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "69172 614.",
+          "ocr_confidence": 0.374,
+          "cleaned_text": "69172614",
+          "standardized_text": "69172614",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 167.7
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "614 691,72",
+          "ocr_confidence": 0.487,
+          "cleaned_text": "61469172",
+          "standardized_text": "61469172",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 193.8
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "\"691,72 B14",
+          "ocr_confidence": 0.393,
+          "cleaned_text": "69172B14",
+          "standardized_text": "69172B14",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 272.7
+        }
+      }
+    },
+    {
+      "image_file": "CarLongPlateGen998_jpg.rf.08124bcec86fbde5a451e8aee0946197.jpg",
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "crop_dimensions_wh": [
+        47,
+        12
+      ],
+      "crop_aspect_ratio": 3.92,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "srriu4",
+          "ocr_confidence": 0.057,
+          "cleaned_text": "SRRIU4",
+          "standardized_text": "SRRIU4",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 374.5
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "Gir09",
+          "ocr_confidence": 0.11,
+          "cleaned_text": "GIR09",
+          "standardized_text": "GIR09",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 613.5
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "sie3244",
+          "ocr_confidence": 0.027,
+          "cleaned_text": "SIE3244",
+          "standardized_text": "SIE3244",
+          "plate_type": "FOREIGN",
+          "is_valid_indian": false,
+          "format_type": "FOREIGN_STANDARD",
+          "processing_time_ms": 392.2
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "6Ww",
+          "ocr_confidence": 0.29,
+          "cleaned_text": "6WW",
+          "standardized_text": "6WW",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 325.2
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "6r&:09",
+          "ocr_confidence": 0.047,
+          "cleaned_text": "6R09",
+          "standardized_text": "6R09",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 524.3
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "Jer09",
+          "ocr_confidence": 0.187,
+          "cleaned_text": "JER09",
+          "standardized_text": "JER09",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 354.7
+        }
+      }
+    },
+    {
+      "image_file": "pic_259_jpg.rf.bdeedbfb55112ba4c5d924fe8e736fb0.jpg",
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "crop_dimensions_wh": [
+        767,
+        341
+      ],
+      "crop_aspect_ratio": 2.25,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "M8 7227 nz9nnartua?",
+          "ocr_confidence": 0.25,
+          "cleaned_text": "M87227NZ9NNARTUA",
+          "standardized_text": "M87227NZ9NNARTUA",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 918.9
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "MU 7227 nz1MwNytVa;",
+          "ocr_confidence": 0.285,
+          "cleaned_text": "MU7227NZ1MWNYTVA",
+          "standardized_text": "MU7227NZ1MWNYTVA",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 896.9
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "MU 7227 nzIMwNMtVa?",
+          "ocr_confidence": 0.313,
+          "cleaned_text": "MU7227NZIMWNMTVA",
+          "standardized_text": "MU7227NZIMWNMTVA",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 879.9
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "M8 7227 OtaXrVMtva3 qj :",
+          "ocr_confidence": 0.245,
+          "cleaned_text": "M87227OTAXRVMTVA3QJ",
+          "standardized_text": "M87227OTAXRVMTVA3QJ",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 903.1
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "VU 7227 nz1Mwuyiwas",
+          "ocr_confidence": 0.169,
+          "cleaned_text": "VU7227NZ1MWUYIWAS",
+          "standardized_text": "VU7227NZ1MWUYIWAS",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 904.3
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "VU 7227 nz1Mwuyiwas",
+          "ocr_confidence": 0.169,
+          "cleaned_text": "VU7227NZ1MWUYIWAS",
+          "standardized_text": "VU7227NZ1MWUYIWAS",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 903.6
+        }
+      }
+    },
+    {
+      "image_file": "xemay1573_jpg.rf.6b2d6461a87d8babbb107ee90edba7cd.jpg",
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "crop_dimensions_wh": [
+        114,
+        98
+      ],
+      "crop_aspect_ratio": 1.16,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "59-B7 338, 12",
+          "ocr_confidence": 0.757,
+          "cleaned_text": "59B733812",
+          "standardized_text": "59B733812",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 171.0
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "59-B7 338.72",
+          "ocr_confidence": 0.585,
+          "cleaned_text": "59B733872",
+          "standardized_text": "59B733872",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 269.5
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "59-B7 338 12",
+          "ocr_confidence": 0.657,
+          "cleaned_text": "59B733812",
+          "standardized_text": "59B733812",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 183.2
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "59.B7 338 12",
+          "ocr_confidence": 0.851,
+          "cleaned_text": "59B733812",
+          "standardized_text": "59B733812",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 153.6
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "59 B7 338.72",
+          "ocr_confidence": 0.676,
+          "cleaned_text": "59B733872",
+          "standardized_text": "59B733872",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 186.1
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "59-81 338.72",
+          "ocr_confidence": 0.545,
+          "cleaned_text": "598133872",
+          "standardized_text": "598133872",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 213.6
+        }
+      }
+    },
+    {
+      "image_file": "xemay424_jpg.rf.6ee2887c5e4e8dd45f69501451592b57.jpg",
+      "group": "Foreign Unseen Test",
+      "expected_label": "FOREIGN",
+      "crop_dimensions_wh": [
+        101,
+        86
+      ],
+      "crop_aspect_ratio": 1.17,
+      "variant_results": {
+        "V0_Baseline": {
+          "raw_ocr_text": "59-C1 399.1 6",
+          "ocr_confidence": 0.482,
+          "cleaned_text": "59C139916",
+          "standardized_text": "59C139916",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 149.4
+        },
+        "V1_HighRes_Upscale": {
+          "raw_ocr_text": "59 C1 399.16",
+          "ocr_confidence": 0.588,
+          "cleaned_text": "59C139916",
+          "standardized_text": "59C139916",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 272.7
+        },
+        "V2_Grayscale_CLAHE": {
+          "raw_ocr_text": "59-C1 399.16",
+          "ocr_confidence": 0.735,
+          "cleaned_text": "59C139916",
+          "standardized_text": "59C139916",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 144.1
+        },
+        "V3_Adaptive_Binarize": {
+          "raw_ocr_text": "59 C1 399.16,",
+          "ocr_confidence": 0.461,
+          "cleaned_text": "59C139916",
+          "standardized_text": "59C139916",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 146.7
+        },
+        "V4_Sharpen_Unsharp": {
+          "raw_ocr_text": "59-CI 399.16",
+          "ocr_confidence": 0.484,
+          "cleaned_text": "59CI39916",
+          "standardized_text": "59CI39916",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 182.9
+        },
+        "V5_LineAware_Adaptive": {
+          "raw_ocr_text": "59 C1 399.16",
+          "ocr_confidence": 0.484,
+          "cleaned_text": "59C139916",
+          "standardized_text": "59C139916",
+          "plate_type": "UNKNOWN",
+          "is_valid_indian": false,
+          "format_type": "UNKNOWN",
+          "processing_time_ms": 251.3
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# Number Plate Recognition (NPR) Module Dependencies
+# CDAC AI-Based Intelligent Vehicle Monitoring & Traffic Violation Detection System
+
+# Core Computer Vision, Image Rectification & Array Processing
+opencv-python>=4.10.0
+numpy>=1.24.0
+Pillow>=10.0.0
+pyyaml>=6.0
+
+# Deep Learning Object Detection (YOLOv8n License Plate Detector)
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.2.0
+
+# Optical Character Recognition (OCR Engine)
+easyocr>=1.7.0
+
+# Testing & Quality Assurance
+pytest>=8.0.0

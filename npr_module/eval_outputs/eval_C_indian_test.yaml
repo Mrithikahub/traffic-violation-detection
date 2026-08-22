@@ -1,0 +1,8 @@
+path: e:\CDAC Dataset\CDAC_Workspace
+train: e:\CDAC Dataset\CDAC_Workspace\npr_module\configs\manifests\train_combined.txt
+val: e:\CDAC Dataset\CDAC_Workspace\npr_module\configs\manifests\test_indian.txt
+test: e:\CDAC Dataset\CDAC_Workspace\npr_module\configs\manifests\test_indian.txt
+
+nc: 1
+names:
+  0: license_plate

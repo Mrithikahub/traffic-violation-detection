@@ -1,0 +1,187 @@
+{
+  "evaluation_timestamp": "2026-08-22 23:46:21",
+  "model_weights": "e:\\CDAC Dataset\\CDAC_Workspace\\npr_module\\runs\\detect\\npr_yolov8n_baseline\\weights\\best.pt",
+  "dataset_overlap_checks": {
+    "train_count": 7708,
+    "val_count": 873,
+    "test_indian_count": 153,
+    "test_foreign_count": 1020,
+    "overlap_train_vs_test_indian": 0,
+    "overlap_train_vs_test_foreign": 0,
+    "overlap_val_vs_test_indian": 0,
+    "overlap_val_vs_test_foreign": 0,
+    "overlap_test_indian_vs_test_foreign": 0
+  },
+  "indian_unseen_test_summary": {
+    "group_name": "Indian Unseen Test",
+    "total_images_evaluated": 153,
+    "pipeline_execution_success_count": 153,
+    "pipeline_execution_success_rate_pct": 100.0,
+    "plates_detected_count": 153,
+    "detection_success_rate_pct": 100.0,
+    "mean_iou_when_gt_available": 0.3035,
+    "ocr_non_empty_count": 153,
+    "ocr_non_empty_rate_pct": 100.0,
+    "indian_format_yield_count": 86,
+    "indian_format_yield_pct": 56.21,
+    "confidence_distribution": {
+      "high_conf_ge_80": 17,
+      "high_conf_pct": 11.11,
+      "med_conf_50_79": 50,
+      "med_conf_pct": 32.68,
+      "low_conf_lt_50": 86,
+      "low_conf_pct": 56.21
+    },
+    "plate_type_distribution": {
+      "INDIAN": 93,
+      "FOREIGN": 0,
+      "UNKNOWN": 60
+    },
+    "variant_selection_counts": {
+      "V0_COLOR_CLAHE": 51,
+      "V1_GRAY_CLAHE": 56,
+      "V2_ADAPTIVE_BINARIZE": 46
+    },
+    "error_category_distribution": {
+      "14. General low confidence / Unknown ambiguity": 10,
+      "3. Extremely small plate resolution": 62,
+      "4. Blur / Low contrast / Noise": 12,
+      "11. Character confusion / Non-standard Indian format": 1,
+      "10. Multi-line / square plate layout": 1
+    },
+    "latency_stats_ms": {
+      "mean_ms": 853.95,
+      "median_ms": 872.82,
+      "min_ms": 424.8,
+      "max_ms": 1352.94,
+      "p90_ms": 1077.91
+    }
+  },
+  "foreign_unseen_test_summary": {
+    "group_name": "Foreign Unseen Test",
+    "total_images_evaluated": 1020,
+    "pipeline_execution_success_count": 1020,
+    "pipeline_execution_success_rate_pct": 100.0,
+    "plates_detected_count": 1012,
+    "detection_success_rate_pct": 99.22,
+    "mean_iou_when_gt_available": 1.4475,
+    "ocr_non_empty_count": 1007,
+    "ocr_non_empty_rate_pct": 99.51,
+    "indian_format_yield_count": 6,
+    "indian_format_yield_pct": 0.59,
+    "confidence_distribution": {
+      "high_conf_ge_80": 176,
+      "high_conf_pct": 17.48,
+      "med_conf_50_79": 434,
+      "med_conf_pct": 43.1,
+      "low_conf_lt_50": 397,
+      "low_conf_pct": 39.42
+    },
+    "plate_type_distribution": {
+      "INDIAN": 7,
+      "FOREIGN": 18,
+      "UNKNOWN": 995
+    },
+    "variant_selection_counts": {
+      "V0_COLOR_CLAHE": 354,
+      "V1_GRAY_CLAHE": 377,
+      "V2_ADAPTIVE_BINARIZE": 281
+    },
+    "error_category_distribution": {
+      "14. General low confidence / Unknown ambiguity": 49,
+      "4. Blur / Low contrast / Noise": 59,
+      "3. Extremely small plate resolution": 260,
+      "1. Detector failure": 8,
+      "10. Multi-line / square plate layout": 34
+    },
+    "latency_stats_ms": {
+      "mean_ms": 889.24,
+      "median_ms": 782.91,
+      "min_ms": 42.85,
+      "max_ms": 25331.45,
+      "p90_ms": 1122.68
+    }
+  },
+  "slowest_10_cases": [
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "American-20license-20plate-20-x-2010-20different-20states-_-20Car_jpg.rf.82d41abfb5c95eb1acb5c3128e12a830.jpg",
+      "crop_width": 3647,
+      "crop_height": 2132,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "processing_time_ms": 25331.45
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "pic_773_jpg.rf.e2f413e8368c6c4e78bab2e6928dca53.jpg",
+      "crop_width": 1901,
+      "crop_height": 1056,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "processing_time_ms": 16447.44
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "2016_Nevada_license_plate_28front29_jpg.rf.f47e9374cce671a2602651643b8e4ff7.jpg",
+      "crop_width": 2031,
+      "crop_height": 1092,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "processing_time_ms": 14722.68
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "IMG_6993-conv_jpeg_jpg.rf.052b8b179519426a8fc8441577c9d7c5.jpg",
+      "crop_width": 1579,
+      "crop_height": 751,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "processing_time_ms": 10049.53
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "IMG_7005-conv_jpeg_jpg.rf.269b7aea3fca9dc809dfe8409b05df33.jpg",
+      "crop_width": 1283,
+      "crop_height": 996,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "processing_time_ms": 9955.86
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "IMG_7038-conv_jpeg_jpg.rf.8e7e7c9737510d57e28fa97c8e9e31a1.jpg",
+      "crop_width": 1071,
+      "crop_height": 982,
+      "selected_variant": "V1_GRAY_CLAHE",
+      "processing_time_ms": 8633.25
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "IMG_7039-conv_jpeg_jpg.rf.13434eb9d066875371d6a9013d71c67a.jpg",
+      "crop_width": 1319,
+      "crop_height": 777,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "processing_time_ms": 8270.55
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "IMG_7003-conv_jpeg_jpg.rf.9d8bb1cc276adfae4717a3065b7f7e68.jpg",
+      "crop_width": 1258,
+      "crop_height": 647,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "processing_time_ms": 6876.44
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "IMG_7063-conv_jpeg_jpg.rf.64e778527be7c1661d976928359420c4.jpg",
+      "crop_width": 1032,
+      "crop_height": 724,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "processing_time_ms": 6792.72
+    },
+    {
+      "group": "Foreign Unseen Test",
+      "image_name": "54-2ecef463fdf2536f6243b20a7d8fb897_jpg.rf.5a34232ad776f90b77d5e4f474fb4d86.jpg",
+      "crop_width": 1503,
+      "crop_height": 647,
+      "selected_variant": "V0_COLOR_CLAHE",
+      "processing_time_ms": 6715.02
+    }
+  ]
+}

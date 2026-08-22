@@ -107,3 +107,15 @@ results_night/
 #   results_val*.json            fine-tuning before/after numbers
 # These are small and are what make the reports and the CSV schema verifiable.
 # ---------------------------------------------------------------------------
+
+
+# Datasets
+indian_no_plates_B/
+no_plates_train_C/
+no_plates_test_C/
+*.code-workspace
+
+# NPR Module exclusions & whitelist
+!npr_module/runs/detect/npr_yolov8n_baseline/weights/best.pt
+npr_module/runs/**/weights/epoch*.pt
+npr_module/runs/**/weights/last.pt

@@ -1,0 +1,20 @@
+====================================================================================================
+CDAC NPR MODULE — 4-WAY DISAGGREGATED EVALUATION REPORT
+Generated : 2026-08-22 14:46:46
+Weights   : e:\CDAC Dataset\CDAC_Workspace\npr_module\runs\detect\npr_yolov8n_baseline\weights\best.pt
+Sanity Check (No test-train overlap): PASS
+====================================================================================================
+
+--- VALIDATION SPLITS (seen during training) ---------------------------------
+Split                                   Images  Instances   Precision   Recall   mAP@50   mAP@50-95
+----------------------------------------------------------------------------------------------------
+  Indian Validation Set   [VAL]            169        169      0.9865   1.0000   0.9948      0.8082
+  Foreign Validation Set  [VAL]            704        726      0.9641   0.9614   0.9814      0.7043
+
+--- UNSEEN TEST SPLITS (never seen during training) --------------------------
+Split                                   Images  Instances   Precision   Recall   mAP@50   mAP@50-95
+----------------------------------------------------------------------------------------------------
+  Indian Unseen Test Set  [TEST]           153        153      0.9924   1.0000   0.9950      0.8127
+  Foreign Unseen Test Set [TEST]          1020       1085      0.9863   0.9484   0.9686      0.6932
+
+====================================================================================================
