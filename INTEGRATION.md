@@ -245,9 +245,11 @@ fine_estimation.py
 
 ## 7. Fine values do not exist — build from scratch
 
-Searched the whole project for `fine`, `penalty`, `rupee`, `INR`, `₹`,
-`challan`, `MV Act`: **zero hits in project code.** There is no rule table, no
-amount mapping, no severity tiering, no statute reference.
+Searched the whole project — including `npr_module/` — for `fine`, `penalty`,
+`rupee`, `INR`, `₹`, `challan`, `MV Act`: **no fine or rule values anywhere.**
+(The hits that do turn up are "fine-tune" as a verb and an unrelated OCR
+scoring `penalty`.) There is no rule table, no amount mapping, no severity
+tiering, no statute reference.
 
 This is entirely unbuilt. What is needed:
 
@@ -326,6 +328,39 @@ for vid, v in veh.items():
                  int(float(b["x1"])):int(float(b["x2"]))]
     # -> plate recognition on `crop`
 ```
+
+### Wiring straight into `npr_module`
+
+The NPR module's entry point is
+`NumberPlateRecognizer.process_vehicle_crop()` in
+`npr_module/src/pipeline.py`, and its signature already matches what this
+module emits one-for-one:
+
+| NPR parameter | Comes from |
+|---|---|
+| `vehicle_crop` | the crop above |
+| `vehicle_id` | `_vehicles.csv` → `vehicle_id` |
+| `frame_id` | `_vehicles.csv` → `best_frame_id` |
+| `vehicle_bbox` | `_tracks.csv` row at `(best_frame_id, vehicle_id)` → `[x1, y1, x2, y2]` |
+
+So the loop above becomes:
+
+```python
+from npr_module.src import NumberPlateRecognizer
+
+recognizer = NumberPlateRecognizer()
+result = recognizer.process_vehicle_crop(
+    vehicle_crop=crop,
+    vehicle_id=vid,
+    frame_id=f,
+    vehicle_bbox=[int(float(b["x1"])), int(float(b["y1"])),
+                  int(float(b["x2"])), int(float(b["y2"]))],
+)
+```
+
+`result["vehicle_id"]` is passed straight through, so its output joins back to
+the violation CSVs on the same key with no translation layer — subject to the
+per-video uniqueness caveat in §5.
 
 ### How the frame is chosen
 
