@@ -62,12 +62,31 @@ box stays correctly on the vehicle. **Do not classify a vehicle from one frame.*
 | `first_frame` / `last_frame` | int | Frame range of the track. |
 | `duration_sec` | float | `n_frames / fps`. |
 | `mean_confidence` / `max_confidence` | float | Detector confidence over the track. |
+| `best_frame_id` | int | The frame of this track most likely to yield a readable number plate. **Plate recognition should crop this frame.** See below. |
+| `best_frame_area` | float | Box area in px² at `best_frame_id`. A rough legibility budget — on 1280×624 footage, below ~5000 px² the plate is unlikely to be resolvable. |
+| `best_frame_confidence` | float | Detector confidence at `best_frame_id`. Not the same as `max_confidence`. |
 
 ```csv
-vehicle_id,class,class_agreement,n_frames,first_frame,last_frame,duration_sec,mean_confidence,max_confidence
-1,truck,0.843,51,1,51,5.1,0.7712,0.8530
-2,car,1.0,44,1,44,4.4,0.6903,0.7781
+vehicle_id,class,class_agreement,n_frames,first_frame,last_frame,duration_sec,mean_confidence,max_confidence,best_frame_id,best_frame_area,best_frame_confidence
+1,car,1.0,25,0,24,0.83,0.9091,0.9754,0,123548.7,0.9754
+2,car,1.0,42,0,41,1.4,0.8796,0.9526,22,72437.7,0.9158
 ```
+
+### How `best_frame_id` is chosen
+
+`pick_best_frame()` in `detect_track.py`. Boxes touching the frame border are
+discarded first — a vehicle halfway out of shot is often the *largest* box in
+its track while showing no plate at all. The remaining boxes are scored
+`sqrt(area) × confidence`: `sqrt` keeps the term proportional to plate *height*
+rather than its square, and confidence acts as a proxy for a clean, unoccluded
+view. If every box in a track is truncated, the border filter is dropped rather
+than returning nothing.
+
+This is a heuristic on detection geometry. It does not measure blur, glare, or
+plate angle, and it never inspects pixels. Measured on the 179 vehicles of the
+demo clip it differs from a naive highest-confidence pick on 55% of vehicles and
+from a naive largest-box pick on 66% — in 27 of those cases specifically by
+rejecting a frame-truncated box.
 
 ---
 

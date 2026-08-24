@@ -431,7 +431,8 @@ def process_video(video_path, args, out_dir, model, tracker_cfg,
     # while its label flips car<->truck between frames), so also emit one
     # majority-voted row per vehicle. Downstream modules that need "what kind of
     # vehicle is this" should read this file, not a single frame's label.
-    summary = build_track_summary(rows, vmeta["fps"])
+    summary = build_track_summary(rows, vmeta["fps"],
+                                  vmeta["width"], vmeta["height"])
     if summary:
         sum_path = out_dir / f"{stem}_vehicles.csv"
         with open(sum_path, "w", newline="", encoding="utf-8") as f:
@@ -449,11 +450,48 @@ def process_video(video_path, args, out_dir, model, tracker_cfg,
             "stats": stats, "written": written}
 
 
-def build_track_summary(rows, fps):
+def pick_best_frame(recs, width=None, height=None, edge_margin=2):
+    """The frame of a track most likely to yield a readable number plate.
+
+    Plate legibility is driven by how many pixels the plate spans, which scales
+    with the *linear* size of the vehicle box -- so the score uses sqrt(area),
+    not area, keeping it proportional to plate height rather than to its square.
+    Detector confidence multiplies it as a proxy for a clean, unoccluded view:
+    between two boxes of equal size, the one the detector was surer about is the
+    less obstructed one.
+
+    Boxes touching the frame border are discarded first. A vehicle halfway out
+    of shot is often the largest box in its track while showing no plate at all,
+    so size alone would reliably pick the worst frame. If every box in the track
+    is truncated the filter is dropped rather than returning nothing.
+
+    Returns the chosen record. `width`/`height` are optional: without them the
+    truncation filter is skipped and selection falls back to size x confidence.
+    """
+    def truncated(r):
+        if width is None or height is None:
+            return False
+        return (r["x1"] <= edge_margin or r["y1"] <= edge_margin
+                or r["x2"] >= width - edge_margin
+                or r["y2"] >= height - edge_margin)
+
+    def score(r):
+        area = max((r["x2"] - r["x1"]) * (r["y2"] - r["y1"]), 0.0)
+        return (area ** 0.5) * r["confidence"]
+
+    pool = [r for r in recs if not truncated(r)] or recs
+    return max(pool, key=score)
+
+
+def build_track_summary(rows, fps, width=None, height=None):
     """One row per tracked vehicle, with a majority-voted class.
 
     Ties are broken by summed confidence, so a class the detector was
     consistently sure about beats one it guessed weakly the same number of times.
+
+    Also names the single best frame per vehicle for downstream plate OCR, so
+    that module does not have to re-derive the selection from the per-frame CSV.
+    See pick_best_frame() for how it is chosen.
     """
     tracks = defaultdict(list)
     for r in rows:
@@ -469,6 +507,8 @@ def build_track_summary(rows, fps):
             weight[r["class"]] += r["confidence"]
         best = max(votes, key=lambda c: (votes[c], weight[c]))
         confs = [r["confidence"] for r in recs]
+        bf = pick_best_frame(recs, width, height)
+        bf_area = (bf["x2"] - bf["x1"]) * (bf["y2"] - bf["y1"])
         out.append({
             "vehicle_id": tid,
             "class": best,
@@ -479,6 +519,11 @@ def build_track_summary(rows, fps):
             "duration_sec": round(len(recs) / fps, 2) if fps else None,
             "mean_confidence": round(float(np.mean(confs)), 4),
             "max_confidence": round(float(max(confs)), 4),
+            # Appended after max_confidence so the existing column order is
+            # unchanged for anything already reading this file.
+            "best_frame_id": bf["frame_id"],
+            "best_frame_area": round(float(bf_area), 1),
+            "best_frame_confidence": round(float(bf["confidence"]), 4),
         })
     return out
 

@@ -136,6 +136,14 @@ Four things that will bite you if you assume otherwise:
 Boxes are absolute pixels in the source resolution, so you can crop directly
 with `frame[int(y1):int(y2), int(x1):int(x2)]`.
 
+For plate recognition, `<name>_vehicles.csv` also carries `best_frame_id`,
+`best_frame_area`, and `best_frame_confidence` — the frame per vehicle most
+likely to yield a readable plate, so OCR does not have to derive that itself.
+
+Building the Fine Estimation or OCR module? Read
+**[INTEGRATION.md](INTEGRATION.md)** — it covers all four violation layers'
+schemas, the join keys for multi-violation vehicles, and what is not built yet.
+
 Each violation layer appends its own columns to a copy of this table rather
 than modifying it, so the base schema stays stable.
 
@@ -166,6 +174,7 @@ the pipeline, graded by severity. The load-bearing ones:
 | Document | Contents |
 |---|---|
 | [OUTPUT_FORMAT.md](OUTPUT_FORMAT.md) | **The schema contract.** Start here. |
+| [INTEGRATION.md](INTEGRATION.md) | **For the Fine Estimation and OCR modules.** Violation schemas, join keys, best-frame selection, and what is not built yet. |
 | [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md) | Every assumption, graded by severity |
 | [BASELINE_REPORT.md](BASELINE_REPORT.md) | YOLOv8s over 254 UCSD daytime clips |
 | [BASELINE_NIGHT.md](BASELINE_NIGHT.md) | Night / low-light behaviour |
