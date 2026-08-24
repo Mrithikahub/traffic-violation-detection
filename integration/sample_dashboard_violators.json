@@ -1,0 +1,85 @@
+[
+  {
+    "track_id": 9,
+    "vehicle_class": "car",
+    "plate_number": "MEI",
+    "is_plate_detected": true,
+    "violations": [
+      "lane_change",
+      "speeding",
+      "tailgating"
+    ],
+    "violation_count": 3,
+    "speed_kmh": 101.8,
+    "speed_limit_kmh": 60.0,
+    "fine_amount": 3295.0,
+    "currency": "INR",
+    "time_sec": 0.63,
+    "evidence_image": "evidence_crops/teammate_video_9_evidence.jpg"
+  },
+  {
+    "track_id": 20,
+    "vehicle_class": "bike",
+    "plate_number": "UNRESOLVED",
+    "is_plate_detected": false,
+    "violations": [
+      "speeding",
+      "tailgating"
+    ],
+    "violation_count": 2,
+    "speed_kmh": 121.8,
+    "speed_limit_kmh": 60.0,
+    "fine_amount": 1777.0,
+    "currency": "INR",
+    "time_sec": 0.53,
+    "evidence_image": "evidence_crops/teammate_video_20_evidence.jpg"
+  },
+  {
+    "track_id": 1,
+    "vehicle_class": "car",
+    "plate_number": "6OTZNOL",
+    "is_plate_detected": true,
+    "violations": [
+      "lane_change"
+    ],
+    "violation_count": 1,
+    "speed_kmh": null,
+    "speed_limit_kmh": 60.0,
+    "fine_amount": 500.0,
+    "currency": "INR",
+    "time_sec": 0.47,
+    "evidence_image": "evidence_crops/teammate_video_1_evidence.jpg"
+  },
+  {
+    "track_id": 3,
+    "vehicle_class": "car",
+    "plate_number": "JLTLL",
+    "is_plate_detected": true,
+    "violations": [
+      "speeding"
+    ],
+    "violation_count": 1,
+    "speed_kmh": 77.7,
+    "speed_limit_kmh": 60.0,
+    "fine_amount": 1442.5,
+    "currency": "INR",
+    "time_sec": 0.83,
+    "evidence_image": "evidence_crops/teammate_video_3_evidence.jpg"
+  },
+  {
+    "track_id": 4,
+    "vehicle_class": "rickshaw",
+    "plate_number": "UNRESOLVED",
+    "is_plate_detected": false,
+    "violations": [
+      "speeding"
+    ],
+    "violation_count": 1,
+    "speed_kmh": 63.5,
+    "speed_limit_kmh": 60.0,
+    "fine_amount": 820.0,
+    "currency": "INR",
+    "time_sec": 0.73,
+    "evidence_image": "evidence_crops/teammate_video_4_evidence.jpg"
+  }
+]

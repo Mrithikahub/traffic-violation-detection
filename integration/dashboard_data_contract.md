@@ -204,7 +204,8 @@ Each tracked vehicle in the dataset produces a single comprehensive record confo
         "best_frame_id": { "type": ["integer", "null"], "description": "Frame index providing the cleanest, largest unoccluded view" },
         "best_frame_area": { "type": ["number", "null"], "description": "Bounding box area in px² at best_frame_id" },
         "best_frame_confidence": { "type": ["number", "null"], "description": "Detector confidence at best_frame_id" },
-        "has_resolvable_plate_budget": { "type": "boolean", "description": "True if best_frame_area >= 5000 px²" }
+        "has_resolvable_plate_budget": { "type": "boolean", "description": "True if best_frame_area >= 5000 px²" },
+        "evidence_image_path": { "type": ["string", "null"], "description": "Relative path to the burned-in tagged evidence snapshot (e.g. 'evidence_crops/teammate_video_20_evidence.jpg')" }
       }
     },
     "disclaimer": { "type": "string", "description": "Legal disclaimer regarding prototype calculation" }
@@ -239,9 +240,11 @@ Each tracked vehicle in the dataset produces a single comprehensive record confo
 | `first_violation_sec` | `float` | Yes | Member 1 & 2 | Timestamp in seconds ($\text{frame\_id} / 30.0$). |
 | `fine.total_fine` | `float` | No | Member 2 (`fine_estimation`) | Sum/compounded prototype fine amount in INR. |
 | `fine.fine_breakdown` | `object` | No | Member 2 (`fine_estimation`) | Map of violation type to itemized base fine, penalty, and details. |
-| `evidence.best_frame_id`| `integer`| Yes | Member 1 (`_vehicles.csv`) | Optimal frame index for plate inspection and evidence display. |
-| `evidence.best_frame_area`| `float` | Yes | Member 1 (`_vehicles.csv`) | Pixel area at best frame. $<5000\text{ px}^2$ is below resolution budget. |
-| `disclaimer` | `string` | No | Member 2 (`fine_estimation`) | Standard non-enforcement prototype disclaimer. |
+| `evidence.best_frame_id` | `integer` | Yes | Member 1 (`_vehicles.csv`) | Frame where vehicle appears with maximum unoccluded area. |
+| `evidence.best_frame_area` | `float` | Yes | Member 1 (`_vehicles.csv`) | Bounding box pixel area at best frame. |
+| `evidence.has_resolvable_plate_budget` | `boolean` | No | System | Flag (`best_frame_area >= 5000 px²`) indicating sufficient resolution. |
+| `evidence.evidence_image_path` | `string` | Yes | System (`run_pipeline.py`) | Relative path to the burned-in tagged evidence snapshot card (`evidence_crops/{stem}_{vid}_evidence.jpg`). |
+| `disclaimer` | `string` | No | Member 2 (`fine_estimation`) | Legal statement clarifying prototype/demo status of fines. |
 
 ---
 

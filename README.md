@@ -62,7 +62,30 @@ Stock YOLO weights download automatically on first run.
 
 ## How to run
 
-### 1. Detection + tracking
+### 0. End-to-End Master Pipeline (`run_pipeline.py`)
+
+Run the entire multi-stage system (Detection $\to$ Tracking $\to$ 4-Way Violations $\to$ Plate Recognition $\to$ Fine Estimation $\to$ Unified Records $\to$ Video Render) in a single command on **any input video**:
+
+```bash
+# Run on any arbitrary video file:
+python run_pipeline.py --video path/to/your_video.mp4 --out-dir outputs/my_run --save-video
+
+# Run on the reference video with custom speed limit and model:
+python run_pipeline.py --video data/video/teammate_video.mp4 --out-dir outputs/teammate_run --speed-limit 60.0 --model yolov8n.pt --save-video
+
+# Fast re-run on existing tracks (skips re-detecting YOLO frames):
+python run_pipeline.py --video teammate_video.mp4 --out-dir outputs_calib --reuse-tracks
+```
+
+**Generated Deliverables in `--out-dir`:**
+- `<stem>_unified_records.json` — Complete hierarchical vehicle records (speed, plate OCR, itemized fines, timestamps) adhering to [`integration/dashboard_data_contract.md`](integration/dashboard_data_contract.md).
+- `<stem>_unified_records.csv` — Tabular records for dashboard data tables.
+- `<stem>_summary_kpi.json` — High-level KPI metrics for dashboard scorecards.
+- `<stem>_all_violations.mp4` — Rendered video with nested bounding boxes per violation.
+
+---
+
+### 1. Detection + tracking (Standalone)
 
 ```bash
 python detect_track.py --video data/video/teammate_video.mp4 --model yolov8s.pt --out-dir outputs_demo --save-video
