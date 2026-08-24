@@ -1,0 +1,694 @@
+[
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 20,
+    "composite_id": "teammate_video_20",
+    "class": "bike",
+    "class_agreement": 1.0,
+    "tracking": {
+      "n_frames": 55,
+      "first_frame": 0,
+      "last_frame": 54,
+      "duration_sec": 1.83,
+      "mean_confidence": 0.8402
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": 95.7,
+      "avg_speed_kmh": 57.7,
+      "speed_delta_kmh": 35.7,
+      "is_speed_measured": true
+    },
+    "plate": {
+      "plate_detected": true,
+      "plate_text": "MH12DE1433",
+      "raw_ocr_text": "MH12DE1433",
+      "ocr_confidence": 0.92,
+      "is_valid_indian_format": true,
+      "format_type": "STANDARD",
+      "state_code": "MH",
+      "state_name": "Maharashtra",
+      "district_code": "12",
+      "series_code": "DE",
+      "unique_number": "1433"
+    },
+    "violations": [
+      "speeding",
+      "tailgating"
+    ],
+    "violation_count": 2,
+    "first_violation_frame": 24,
+    "first_violation_sec": 0.8,
+    "timing_by_violation": {
+      "speeding": {
+        "first_violation_frame": 26,
+        "first_violation_sec": 0.87,
+        "frames_over_limit": 15
+      },
+      "tailgating": {
+        "first_violation_frame": 24,
+        "first_violation_sec": 0.8,
+        "leader_id": 8,
+        "min_gap_lengths": 0.679
+      }
+    },
+    "fine": {
+      "total_fine": 1385.5,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {
+        "speeding": {
+          "base_fine": 500.0,
+          "excess_speed_penalty": 535.5,
+          "speed_delta_kmh": 35.7,
+          "subtotal": 1035.5,
+          "details": "35.7 km/h over 60.0 km/h limit (max: 95.7 km/h, rate: 15.0/km/h)"
+        },
+        "tailgating": {
+          "base_fine": 350.0,
+          "subtotal": 350.0,
+          "details": "Tailgating min gap 0.68 vehicle lengths"
+        }
+      }
+    },
+    "evidence": {
+      "best_frame_id": 48,
+      "best_frame_area": 42022.9,
+      "best_frame_confidence": 0.9046,
+      "has_resolvable_plate_budget": true
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 3,
+    "composite_id": "teammate_video_3",
+    "class": "car",
+    "class_agreement": 1.0,
+    "tracking": {
+      "n_frames": 57,
+      "first_frame": 56,
+      "last_frame": 112,
+      "duration_sec": 1.9,
+      "mean_confidence": 0.892
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": 77.7,
+      "avg_speed_kmh": 48.5,
+      "speed_delta_kmh": 17.7,
+      "is_speed_measured": true
+    },
+    "plate": {
+      "plate_detected": true,
+      "plate_text": "DL08CA2044",
+      "raw_ocr_text": "DL08CA2044",
+      "ocr_confidence": 0.89,
+      "is_valid_indian_format": true,
+      "format_type": "STANDARD",
+      "state_code": "DL",
+      "state_name": "Delhi",
+      "district_code": "08",
+      "series_code": "CA",
+      "unique_number": "2044"
+    },
+    "violations": [
+      "speeding"
+    ],
+    "violation_count": 1,
+    "first_violation_frame": 61,
+    "first_violation_sec": 2.03,
+    "timing_by_violation": {
+      "speeding": {
+        "first_violation_frame": 61,
+        "first_violation_sec": 2.03,
+        "frames_over_limit": 8
+      }
+    },
+    "fine": {
+      "total_fine": 1442.5,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {
+        "speeding": {
+          "base_fine": 1000.0,
+          "excess_speed_penalty": 442.5,
+          "speed_delta_kmh": 17.7,
+          "subtotal": 1442.5,
+          "details": "17.7 km/h over 60.0 km/h limit (max: 77.7 km/h, rate: 25.0/km/h)"
+        }
+      }
+    },
+    "evidence": {
+      "best_frame_id": 96,
+      "best_frame_area": 88510.4,
+      "best_frame_confidence": 0.9416,
+      "has_resolvable_plate_budget": true
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 9,
+    "composite_id": "teammate_video_9",
+    "class": "car",
+    "class_agreement": 1.0,
+    "tracking": {
+      "n_frames": 118,
+      "first_frame": 51,
+      "last_frame": 168,
+      "duration_sec": 3.93,
+      "mean_confidence": 0.912
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": null,
+      "avg_speed_kmh": null,
+      "speed_delta_kmh": null,
+      "is_speed_measured": false
+    },
+    "plate": {
+      "plate_detected": true,
+      "plate_text": "HR26DK8812",
+      "raw_ocr_text": "HR26DK8812",
+      "ocr_confidence": 0.86,
+      "is_valid_indian_format": true,
+      "format_type": "STANDARD",
+      "state_code": "HR",
+      "state_name": "Haryana",
+      "district_code": "26",
+      "series_code": "DK",
+      "unique_number": "8812"
+    },
+    "violations": [
+      "lane_change",
+      "tailgating"
+    ],
+    "violation_count": 2,
+    "first_violation_frame": 51,
+    "first_violation_sec": 1.7,
+    "timing_by_violation": {
+      "tailgating": {
+        "first_violation_frame": 51,
+        "first_violation_sec": 1.7,
+        "leader_id": 15,
+        "min_gap_lengths": 0.008
+      },
+      "lane_change": {
+        "first_violation_frame": 150,
+        "first_violation_sec": 5.0,
+        "from_lane": "outer_zone",
+        "to_lane": "inner_lane"
+      }
+    },
+    "fine": {
+      "total_fine": 1250.0,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {
+        "lane_change": {
+          "base_fine": 500.0,
+          "subtotal": 500.0,
+          "details": "Unsafe lane change from outer_zone to inner_lane"
+        },
+        "tailgating": {
+          "base_fine": 750.0,
+          "subtotal": 750.0,
+          "details": "Tailgating min gap 0.01 vehicle lengths"
+        }
+      }
+    },
+    "evidence": {
+      "best_frame_id": 155,
+      "best_frame_area": 95400.2,
+      "best_frame_confidence": 0.932,
+      "has_resolvable_plate_budget": true
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 11,
+    "composite_id": "teammate_video_11",
+    "class": "bike",
+    "class_agreement": 1.0,
+    "tracking": {
+      "n_frames": 61,
+      "first_frame": 26,
+      "last_frame": 86,
+      "duration_sec": 2.03,
+      "mean_confidence": 0.885
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": 75.4,
+      "avg_speed_kmh": 54.4,
+      "speed_delta_kmh": 15.4,
+      "is_speed_measured": true
+    },
+    "plate": {
+      "plate_detected": false,
+      "plate_text": null,
+      "raw_ocr_text": null,
+      "ocr_confidence": null,
+      "is_valid_indian_format": null,
+      "format_type": null,
+      "state_code": null,
+      "state_name": null,
+      "district_code": null,
+      "series_code": null,
+      "unique_number": null
+    },
+    "violations": [
+      "lane_change",
+      "speeding"
+    ],
+    "violation_count": 2,
+    "first_violation_frame": 27,
+    "first_violation_sec": 0.9,
+    "timing_by_violation": {
+      "speeding": {
+        "first_violation_frame": 27,
+        "first_violation_sec": 0.9,
+        "frames_over_limit": 20
+      },
+      "lane_change": {
+        "first_violation_frame": 59,
+        "first_violation_sec": 1.97,
+        "from_lane": "outer_zone",
+        "to_lane": "inner_lane"
+      }
+    },
+    "fine": {
+      "total_fine": 981.0,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {
+        "lane_change": {
+          "base_fine": 250.0,
+          "subtotal": 250.0,
+          "details": "Unsafe lane change from outer_zone to inner_lane"
+        },
+        "speeding": {
+          "base_fine": 500.0,
+          "excess_speed_penalty": 231.0,
+          "speed_delta_kmh": 15.4,
+          "subtotal": 731.0,
+          "details": "15.4 km/h over 60.0 km/h limit (max: 75.4 km/h, rate: 15.0/km/h)"
+        }
+      }
+    },
+    "evidence": {
+      "best_frame_id": 75,
+      "best_frame_area": 3210.5,
+      "best_frame_confidence": 0.781,
+      "has_resolvable_plate_budget": false
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 27,
+    "composite_id": "teammate_video_27",
+    "class": "bus",
+    "class_agreement": 0.95,
+    "tracking": {
+      "n_frames": 92,
+      "first_frame": 240,
+      "last_frame": 331,
+      "duration_sec": 3.07,
+      "mean_confidence": 0.924
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": null,
+      "avg_speed_kmh": null,
+      "speed_delta_kmh": null,
+      "is_speed_measured": false
+    },
+    "plate": {
+      "plate_detected": true,
+      "plate_text": "UP32ET9901",
+      "raw_ocr_text": "UP32ET9901",
+      "ocr_confidence": 0.94,
+      "is_valid_indian_format": true,
+      "format_type": "STANDARD",
+      "state_code": "UP",
+      "state_name": "Uttar Pradesh",
+      "district_code": "32",
+      "series_code": "ET",
+      "unique_number": "9901"
+    },
+    "violations": [
+      "tailgating"
+    ],
+    "violation_count": 1,
+    "first_violation_frame": 281,
+    "first_violation_sec": 9.37,
+    "timing_by_violation": {
+      "tailgating": {
+        "first_violation_frame": 281,
+        "first_violation_sec": 9.37,
+        "leader_id": 1790,
+        "min_gap_lengths": 0.594
+      }
+    },
+    "fine": {
+      "total_fine": 1500.0,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {
+        "tailgating": {
+          "base_fine": 1500.0,
+          "subtotal": 1500.0,
+          "details": "Tailgating min gap 0.59 vehicle lengths"
+        }
+      }
+    },
+    "evidence": {
+      "best_frame_id": 291,
+      "best_frame_area": 164200.0,
+      "best_frame_confidence": 0.965,
+      "has_resolvable_plate_budget": true
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 1,
+    "composite_id": "teammate_video_1",
+    "class": "car",
+    "class_agreement": 1.0,
+    "tracking": {
+      "n_frames": 25,
+      "first_frame": 0,
+      "last_frame": 24,
+      "duration_sec": 0.83,
+      "mean_confidence": 0.9091
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": null,
+      "avg_speed_kmh": null,
+      "speed_delta_kmh": null,
+      "is_speed_measured": false
+    },
+    "plate": {
+      "plate_detected": true,
+      "plate_text": "KA03MG4521",
+      "raw_ocr_text": "KA03MG4521",
+      "ocr_confidence": 0.95,
+      "is_valid_indian_format": true,
+      "format_type": "STANDARD",
+      "state_code": "KA",
+      "state_name": "Karnataka",
+      "district_code": "03",
+      "series_code": "MG",
+      "unique_number": "4521"
+    },
+    "violations": [
+      "lane_change"
+    ],
+    "violation_count": 1,
+    "first_violation_frame": 14,
+    "first_violation_sec": 0.47,
+    "timing_by_violation": {
+      "lane_change": {
+        "first_violation_frame": 14,
+        "first_violation_sec": 0.47,
+        "from_lane": "inner_lane",
+        "to_lane": "outer_zone"
+      }
+    },
+    "fine": {
+      "total_fine": 500.0,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {
+        "lane_change": {
+          "base_fine": 500.0,
+          "subtotal": 500.0,
+          "details": "Unsafe lane change from inner_lane to outer_zone"
+        }
+      }
+    },
+    "evidence": {
+      "best_frame_id": 0,
+      "best_frame_area": 123548.7,
+      "best_frame_confidence": 0.9754,
+      "has_resolvable_plate_budget": true
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 2,
+    "composite_id": "teammate_video_2",
+    "class": "car",
+    "class_agreement": 1.0,
+    "tracking": {
+      "n_frames": 42,
+      "first_frame": 0,
+      "last_frame": 41,
+      "duration_sec": 1.4,
+      "mean_confidence": 0.8796
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": null,
+      "avg_speed_kmh": null,
+      "speed_delta_kmh": null,
+      "is_speed_measured": false
+    },
+    "plate": {
+      "plate_detected": false,
+      "plate_text": null,
+      "raw_ocr_text": null,
+      "ocr_confidence": null,
+      "is_valid_indian_format": null,
+      "format_type": null,
+      "state_code": null,
+      "state_name": null,
+      "district_code": null,
+      "series_code": null,
+      "unique_number": null
+    },
+    "violations": [],
+    "violation_count": 0,
+    "first_violation_frame": null,
+    "first_violation_sec": null,
+    "timing_by_violation": {},
+    "fine": {
+      "total_fine": 0.0,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {}
+    },
+    "evidence": {
+      "best_frame_id": 22,
+      "best_frame_area": 72437.7,
+      "best_frame_confidence": 0.9158,
+      "has_resolvable_plate_budget": true
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 4,
+    "composite_id": "teammate_video_4",
+    "class": "rickshaw",
+    "class_agreement": 0.88,
+    "tracking": {
+      "n_frames": 48,
+      "first_frame": 2,
+      "last_frame": 49,
+      "duration_sec": 1.6,
+      "mean_confidence": 0.865
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": null,
+      "avg_speed_kmh": null,
+      "speed_delta_kmh": null,
+      "is_speed_measured": false
+    },
+    "plate": {
+      "plate_detected": false,
+      "plate_text": null,
+      "raw_ocr_text": null,
+      "ocr_confidence": null,
+      "is_valid_indian_format": null,
+      "format_type": null,
+      "state_code": null,
+      "state_name": null,
+      "district_code": null,
+      "series_code": null,
+      "unique_number": null
+    },
+    "violations": [],
+    "violation_count": 0,
+    "first_violation_frame": null,
+    "first_violation_sec": null,
+    "timing_by_violation": {},
+    "fine": {
+      "total_fine": 0.0,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {}
+    },
+    "evidence": {
+      "best_frame_id": 31,
+      "best_frame_area": 4820.0,
+      "best_frame_confidence": 0.892,
+      "has_resolvable_plate_budget": false
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 18,
+    "composite_id": "teammate_video_18",
+    "class": "car",
+    "class_agreement": 1.0,
+    "tracking": {
+      "n_frames": 78,
+      "first_frame": 305,
+      "last_frame": 382,
+      "duration_sec": 2.6,
+      "mean_confidence": 0.931
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": null,
+      "avg_speed_kmh": null,
+      "speed_delta_kmh": null,
+      "is_speed_measured": false
+    },
+    "plate": {
+      "plate_detected": true,
+      "plate_text": "22BH1029AA",
+      "raw_ocr_text": "22BH1029AA",
+      "ocr_confidence": 0.91,
+      "is_valid_indian_format": true,
+      "format_type": "BH_SERIES",
+      "state_code": "BH",
+      "state_name": "Bharat Series",
+      "district_code": null,
+      "series_code": "AA",
+      "unique_number": "1029"
+    },
+    "violations": [
+      "tailgating"
+    ],
+    "violation_count": 1,
+    "first_violation_frame": 337,
+    "first_violation_sec": 11.23,
+    "timing_by_violation": {
+      "tailgating": {
+        "first_violation_frame": 337,
+        "first_violation_sec": 11.23,
+        "leader_id": 1790,
+        "min_gap_lengths": 0.228
+      }
+    },
+    "fine": {
+      "total_fine": 750.0,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {
+        "tailgating": {
+          "base_fine": 750.0,
+          "subtotal": 750.0,
+          "details": "Tailgating min gap 0.23 vehicle lengths"
+        }
+      }
+    },
+    "evidence": {
+      "best_frame_id": 99,
+      "best_frame_area": 84120.0,
+      "best_frame_confidence": 0.945,
+      "has_resolvable_plate_budget": true
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  {
+    "video_id": "teammate_video",
+    "vehicle_id": 23,
+    "composite_id": "teammate_video_23",
+    "class": "car",
+    "class_agreement": 1.0,
+    "tracking": {
+      "n_frames": 84,
+      "first_frame": 120,
+      "last_frame": 203,
+      "duration_sec": 2.8,
+      "mean_confidence": 0.918
+    },
+    "speed": {
+      "speed_limit_kmh": 60.0,
+      "max_speed_kmh": 70.5,
+      "avg_speed_kmh": 55.0,
+      "speed_delta_kmh": 10.5,
+      "is_speed_measured": true
+    },
+    "plate": {
+      "plate_detected": true,
+      "plate_text": "TS09FA5612",
+      "raw_ocr_text": "TS09FA5612",
+      "ocr_confidence": 0.88,
+      "is_valid_indian_format": true,
+      "format_type": "STANDARD",
+      "state_code": "TS",
+      "state_name": "Telangana",
+      "district_code": "09",
+      "series_code": "FA",
+      "unique_number": "5612"
+    },
+    "violations": [
+      "speeding",
+      "tailgating"
+    ],
+    "violation_count": 2,
+    "first_violation_frame": 61,
+    "first_violation_sec": 2.03,
+    "timing_by_violation": {
+      "tailgating": {
+        "first_violation_frame": 61,
+        "first_violation_sec": 2.03,
+        "leader_id": 449,
+        "min_gap_lengths": 0.91
+      },
+      "speeding": {
+        "first_violation_frame": 172,
+        "first_violation_sec": 5.73,
+        "frames_over_limit": 10
+      }
+    },
+    "fine": {
+      "total_fine": 2012.5,
+      "currency": "INR",
+      "compounding_policy": "sum",
+      "fine_breakdown": {
+        "speeding": {
+          "base_fine": 1000.0,
+          "excess_speed_penalty": 262.5,
+          "speed_delta_kmh": 10.5,
+          "subtotal": 1262.5,
+          "details": "10.5 km/h over 60.0 km/h limit (max: 70.5 km/h, rate: 25.0/km/h)"
+        },
+        "tailgating": {
+          "base_fine": 750.0,
+          "subtotal": 750.0,
+          "details": "Tailgating min gap 0.91 vehicle lengths"
+        }
+      }
+    },
+    "evidence": {
+      "best_frame_id": 187,
+      "best_frame_area": 91200.0,
+      "best_frame_confidence": 0.941,
+      "has_resolvable_plate_budget": true
+    },
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  }
+]

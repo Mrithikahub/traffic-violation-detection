@@ -1,0 +1,11 @@
+video_id,vehicle_id,composite_id,class,class_agreement,plate_text,is_valid_indian_format,state_name,violations,violation_count,total_fine,currency,speed_limit_kmh,max_speed_kmh,avg_speed_kmh,speed_delta_kmh,first_violation_frame,first_violation_sec,best_frame_id,best_frame_area
+teammate_video,20,teammate_video_20,bike,1.0,MH12DE1433,True,Maharashtra,speeding;tailgating,2,1385.5,INR,60.0,95.7,57.7,35.7,24,0.8,48,42022.9
+teammate_video,3,teammate_video_3,car,1.0,DL08CA2044,True,Delhi,speeding,1,1442.5,INR,60.0,77.7,48.5,17.7,61,2.03,96,88510.4
+teammate_video,9,teammate_video_9,car,1.0,HR26DK8812,True,Haryana,lane_change;tailgating,2,1250.0,INR,60.0,,,,51,1.7,155,95400.2
+teammate_video,11,teammate_video_11,bike,1.0,,,lane_change;speeding,2,981.0,INR,60.0,75.4,54.4,15.4,27,0.9,75,3210.5
+teammate_video,27,teammate_video_27,bus,0.95,UP32ET9901,True,Uttar Pradesh,tailgating,1,1500.0,INR,60.0,,,,281,9.37,291,164200.0
+teammate_video,1,teammate_video_1,car,1.0,KA03MG4521,True,Karnataka,lane_change,1,500.0,INR,60.0,,,,14,0.47,0,123548.7
+teammate_video,2,teammate_video_2,car,1.0,,,,,0,0.0,INR,60.0,,,,,22,72437.7
+teammate_video,4,teammate_video_4,rickshaw,0.88,,,,,0,0.0,INR,60.0,,,,,31,4820.0
+teammate_video,18,teammate_video_18,car,1.0,22BH1029AA,True,Bharat Series,tailgating,1,750.0,INR,60.0,,,,337,11.23,99,84120.0
+teammate_video,23,teammate_video_23,car,1.0,TS09FA5612,True,Telangana,speeding;tailgating,2,2012.5,INR,60.0,70.5,55.0,10.5,61,2.03,187,91200.0
