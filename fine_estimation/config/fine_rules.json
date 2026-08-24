@@ -1,0 +1,56 @@
+{
+  "rules_meta": {
+    "version": "1.0.0",
+    "description": "Project-defined prototype fine calculation rules for demonstration and testing purposes.",
+    "disclaimer": "These fine values are configurable prototype rules for system demonstration. They do not constitute legally enforceable traffic fines."
+  },
+  "compounding_policy": "sum",
+  "max_total_fine_cap": 25000.0,
+  "currency": "INR",
+  "base_fines": {
+    "speeding": {
+      "car": 1000.0,
+      "bike": 500.0,
+      "bus": 2000.0,
+      "truck": 2000.0,
+      "rickshaw": 750.0,
+      "default": 1000.0
+    },
+    "wrong_side": {
+      "car": 1500.0,
+      "bike": 750.0,
+      "bus": 2500.0,
+      "truck": 2500.0,
+      "rickshaw": 1000.0,
+      "default": 1500.0
+    },
+    "lane_change": {
+      "car": 500.0,
+      "bike": 250.0,
+      "bus": 1000.0,
+      "truck": 1000.0,
+      "rickshaw": 500.0,
+      "default": 500.0
+    },
+    "tailgating": {
+      "car": 750.0,
+      "bike": 350.0,
+      "bus": 1500.0,
+      "truck": 1500.0,
+      "rickshaw": 500.0,
+      "default": 750.0
+    }
+  },
+  "overspeed_penalty": {
+    "enabled": true,
+    "metric": "max_speed_kmh",
+    "excess_speed_multiplier_per_kmh": {
+      "car": 25.0,
+      "bike": 15.0,
+      "bus": 40.0,
+      "truck": 40.0,
+      "rickshaw": 20.0,
+      "default": 25.0
+    }
+  }
+}
