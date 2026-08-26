@@ -1,0 +1,16 @@
+{
+  "_README": "Site-specific guards for the speed layer, for the camera this homography was fitted to. Read automatically by run_pipeline.py from the directory holding homography.npy. Any value here can be overridden on the command line. These numbers describe ONE camera view -- do not copy this file to other footage without re-deriving them.",
+
+  "min_ref_y": 268.0,
+  "min_ref_y_provenance": "Top of the calibrated band. The lane dashes used to fit the homography span y=268..503 in calibration frame 154 (see dashes.json). Above y=268 the ground plane is extrapolated beyond any measured point, and pixel error explodes into the speed estimate. Without this guard the layer reported speeds up to 148.5 km/h on this clip; with it the maximum falls to a plausible range. Derived, not chosen: it is min(y) over every dash endpoint in dashes.json.",
+
+  "max_plausible_kmh": 100.0,
+  "max_plausible_kmh_provenance": "Plausibility ceiling for this urban arterial. Readings above this are rejected as artifacts rather than reported, on the grounds that a 140 km/h car on this road is far more likely to be a tracking or projection error than a real vehicle. This is a rejection threshold, NOT a speed limit -- the limit is --speed-limit.",
+
+  "ignore_regions": [
+    [0.0, 355.0, 325.0, 575.0]
+  ],
+  "ignore_regions_provenance": "Bottom-left of the frame, where the near-camera kerb and foliage produce unstable detections whose apparent motion is dominated by perspective rather than travel. Boxes whose centre falls inside are excluded from the speed layer. Hand-specified for this camera view; see KNOWN_LIMITATIONS.md section 6.",
+
+  "WARNING": "These guards make the speed output defensible; they do not make it evidential. The underlying scale still rests on IRC standard road geometry that was never site-verified. See KNOWN_LIMITATIONS.md sections 1 and 2."
+}

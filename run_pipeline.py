@@ -46,8 +46,79 @@ CLASS_COLORS = {
 }
 
 
+# Fallback plausibility ceiling for the speed layer when neither the command
+# line nor a site_calibration.json supplies one. Readings above this are
+# rejected as projection/tracking artifacts. This is NOT a speed limit.
+DEFAULT_MAX_PLAUSIBLE_KMH = 100.0
+
+
 def log(msg: str):
     print(f"[{datetime.now():%H:%M:%S}] {msg}", flush=True)
+
+
+def resolve_calibration_dir(args) -> Path:
+    """Directory holding the site calibration bundle used by this run.
+
+    The homography defines which camera view we are calibrated for, so the
+    guards that belong to that view live beside it.
+    """
+    if args.homography and Path(args.homography).exists():
+        return Path(args.homography).parent
+    return PROJECT_ROOT / "outputs_demo"
+
+
+def load_site_calibration(cal_dir: Path) -> Dict[str, Any]:
+    """Site-specific speed guards, if this camera view has any recorded.
+
+    Absent file is normal -- footage from an uncalibrated camera simply runs
+    without the site guards. A malformed one is worth a warning, because
+    silently dropping the guards is how implausible speeds reach the fines.
+    """
+    p = cal_dir / "site_calibration.json"
+    if not p.exists():
+        return {}
+    try:
+        return json.loads(p.read_text(encoding="utf-8-sig"))
+    except Exception as ex:
+        log(f"  WARNING: {p} is unreadable ({ex}). Speed guards NOT applied; "
+            f"far-field readings will not be filtered.")
+        return {}
+
+
+def apply_speed_guards(cmd: List[str], args) -> None:
+    """Append the calibration guards to the speed_violation.py command.
+
+    Without these the layer reports speeds extrapolated far outside the region
+    the homography was fitted over. On the reference clip that produced 37
+    speeding vehicles of which 18 exceeded 100 km/h, topping out at 148.5 --
+    and the fine engine charged every one of them.
+
+    Precedence: command line > site_calibration.json > built-in fallback.
+    """
+    site = load_site_calibration(resolve_calibration_dir(args))
+    applied = []
+
+    min_ref_y = args.min_ref_y if args.min_ref_y is not None else site.get("min_ref_y")
+    if min_ref_y is not None:
+        cmd.extend(["--min-ref-y", str(min_ref_y)])
+        applied.append(f"min-ref-y={min_ref_y}")
+
+    max_kmh = args.max_plausible_kmh
+    if max_kmh is None:
+        max_kmh = site.get("max_plausible_kmh", DEFAULT_MAX_PLAUSIBLE_KMH)
+    cmd.extend(["--max-plausible-kmh", str(max_kmh)])
+    applied.append(f"max-plausible-kmh={max_kmh}")
+
+    regions = args.ignore_region or site.get("ignore_regions") or []
+    for r in regions:
+        spec = r if isinstance(r, str) else ",".join(str(v) for v in r)
+        cmd.extend(["--ignore-region", spec])
+        applied.append(f"ignore-region={spec}")
+
+    if min_ref_y is None:
+        log("  Notice: no min-ref-y for this camera view. Speeds will be "
+            "reported outside the calibrated band and may be extrapolated.")
+    log(f"  Speed guards: {', '.join(applied)}")
 
 
 def parse_args():
@@ -60,6 +131,16 @@ def parse_args():
     p.add_argument("--model", default="yolov8n.pt", help="Vehicle detection model weights (YOLO)")
     p.add_argument("--tracker", default="bytetrack.yaml", help="Tracker config name or path")
     p.add_argument("--speed-limit", type=float, default=60.0, help="Road speed limit in km/h")
+    p.add_argument("--min-ref-y", type=float, default=None,
+                   help="Report speed only where the box bottom-centre is at or below this "
+                        "image row, i.e. inside the band the homography was fitted over. "
+                        "Defaults to the value in site_calibration.json beside the homography.")
+    p.add_argument("--max-plausible-kmh", type=float, default=None,
+                   help="Reject speed readings above this as artifacts. NOT a speed limit. "
+                        f"Falls back to site_calibration.json, then {DEFAULT_MAX_PLAUSIBLE_KMH}.")
+    p.add_argument("--ignore-region", action="append", default=None, metavar="x1,y1,x2,y2",
+                   help="Exclude boxes whose centre falls in this rectangle from the speed "
+                        "layer. Repeatable. Defaults to site_calibration.json.")
     p.add_argument("--homography", default=None, help="Path to homography.npy matrix for road calibration")
     p.add_argument("--zones", default=None, help="Path to zones JSON for wrong-lane detection")
     p.add_argument("--lanes", default=None, help="Path to lanes JSON for lane-change detection")
@@ -286,9 +367,18 @@ def generate_tagged_evidence_crops(
                 crop = cv2.resize(crop, (int(cw * scale), int(ch * scale)), interpolation=cv2.INTER_CUBIC)
                 ch, cw = crop.shape[:2]
 
-            # Draw top info banner
+            # Add the banners as EXTRA canvas above and below the crop rather
+            # than painting them onto it. Drawing filled rectangles straight on
+            # the image overwrote 76px of vehicle -- measured across this clip
+            # that obliterated a median 17% of the output image, covered vehicle
+            # pixels on 99 of 164 crops, and cost one vehicle 57% of its body.
+            # The bottom bar in particular sat exactly where the number plate is,
+            # which is the one thing an evidence image exists to show.
             top_bar_h = 32
-            cv2.rectangle(crop, (0, 0), (cw, top_bar_h), (15, 23, 42), -1)  # Dark slate
+            bot_bar_h = 44
+            crop = cv2.copyMakeBorder(crop, top_bar_h, bot_bar_h, 0, 0,
+                                      cv2.BORDER_CONSTANT, value=(15, 23, 42))
+            ch, cw = crop.shape[:2]
 
             v_cls = u_rec["class"].upper()
             cls_col = CLASS_COLORS.get(u_rec["class"].lower(), (200, 200, 200))
@@ -298,9 +388,8 @@ def generate_tagged_evidence_crops(
             (tw, _), _ = cv2.getTextSize(sec_txt, cv2.FONT_HERSHEY_SIMPLEX, 0.45, 1)
             cv2.putText(crop, sec_txt, (cw - tw - 8, 21), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (200, 200, 200), 1, cv2.LINE_AA)
 
-            # Draw bottom telemetry panel
-            bot_bar_h = 44
-            cv2.rectangle(crop, (0, ch - bot_bar_h), (cw, ch), (15, 23, 42), -1)
+            # Bottom telemetry panel. The canvas for it already exists (added
+            # above), so nothing here overwrites vehicle pixels.
 
             # Line 1: Plate & Fine
             p_text = u_rec["plate"]["plate_text"] or "PLATE UNRESOLVED"
@@ -399,6 +488,7 @@ def main():
             "--out-dir", str(out_dir),
             "--speed-limit", str(args.speed_limit),
         ]
+        apply_speed_guards(cmd_speed, args)
         if args.homography and Path(args.homography).exists():
             cmd_speed.extend(["--homography", str(args.homography)])
         elif (PROJECT_ROOT / "outputs_demo" / "homography.npy").exists():

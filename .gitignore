@@ -87,6 +87,10 @@ outputs_night_c02/
 outputs_scan/
 # night batch aggregate -> BASELINE_NIGHT.md
 results_night/
+# run_pipeline.py verification runs (before/after the speed-guard and
+# evidence-canvas fixes). Regenerate with run_pipeline.py; not reference data.
+outputs_pipeline_test/
+outputs_pipeline_fixed/
 
 # ---------------------------------------------------------------------------
 # Deliberately KEPT, despite sitting next to the above:
