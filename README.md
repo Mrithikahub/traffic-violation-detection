@@ -88,12 +88,24 @@ python run_pipeline.py --video teammate_video.mp4 --out-dir outputs_calib --reus
 ### 1. Detection + tracking (Standalone)
 
 ```bash
-python detect_track.py --video data/video/teammate_video.mp4 --model yolov8s.pt --out-dir outputs_demo --save-video
+python detect_track.py --video data/video/teammate_video.mp4 --model runs/detect/runs/bmd45_ft/weights/best.pt --conf 0.10 --imgsz 640 --out-dir outputs_demo --save-video
 ```
 
 This produces `outputs_demo/teammate_video_tracks.csv` — the input to
 everything below, and the file described in
 [OUTPUT_FORMAT.md](OUTPUT_FORMAT.md).
+
+> **Note on reproducing the paper's results.** The committed outputs in
+> `outputs_demo/` and `outputs_calib/` — including the figures reported in the
+> paper (179 vehicles tracked, Rs. 44,187.00 in prototype fines) — were
+> generated with the **fine-tuned YOLOv8s weights** trained on BMD-45
+> (`runs/detect/runs/bmd45_ft/weights/best.pt`, see
+> [FINETUNE_RESULTS.md](FINETUNE_RESULTS.md)). Those weights are **not
+> included in this repository**: model weights are excluded by `.gitignore` to
+> keep the repo small. They are available from the authors on request. Running
+> the command above with stock `yolov8s.pt` instead will produce different
+> tracks, vehicle IDs and violation counts. See
+> [outputs_calib/PROVENANCE.md](outputs_calib/PROVENANCE.md).
 
 ### 2. Violation layers
 
