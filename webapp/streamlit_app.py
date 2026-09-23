@@ -15,6 +15,7 @@ uploaded clips get detection, tracking and tailgating, which is scale-free and
 transfers across cameras.
 """
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -79,9 +80,35 @@ def to_h264(src: Path) -> Path | None:
     return dst if r.returncode == 0 and dst.exists() else None
 
 
+@st.cache_resource
+def _run_lock():
+    """Serialises pipeline subprocesses across all viewers of this server.
+
+    Community Cloud serves everyone from one container and guarantees only
+    690MB. Measured here: the app itself is ~100MB, one pipeline subprocess
+    peaks at ~520MB. Two at once is what would actually exhaust the container,
+    so only one torch process is allowed to run at a time.
+    """
+    import threading
+    return threading.Lock()
+
+
 def run(cmd: list[str], log: list[str]) -> bool:
-    r = subprocess.run([sys.executable] + cmd, cwd=str(ROOT),
-                       capture_output=True, text=True)
+    env = dict(os.environ)
+    # Community Cloud allocates as little as 0.078 CPU cores. Letting torch
+    # spawn a thread per core it thinks it has causes contention, not speed.
+    env.setdefault("OMP_NUM_THREADS", "2")
+    env.setdefault("MKL_NUM_THREADS", "2")
+
+    lock = _run_lock()
+    if not lock.acquire(timeout=900):
+        log.append("timed out waiting for another run to finish")
+        return False
+    try:
+        r = subprocess.run([sys.executable] + cmd, cwd=str(ROOT),
+                           capture_output=True, text=True, env=env)
+    finally:
+        lock.release()
     log.append(f"$ {' '.join(cmd[:2])} ... rc={r.returncode}")
     if r.returncode != 0:
         log.append((r.stderr or "")[-1500:])
@@ -96,7 +123,7 @@ wpath, wlabel = weights()
 with st.sidebar:
     st.header("Input")
     mode = st.radio("Source", ["Sample clip (full pipeline)", "Upload a clip"])
-    seconds = st.slider("Seconds to process", 3, 12, 5,
+    seconds = st.slider("Seconds to process", 3, 8, 3,
                         help="Processing time scales linearly with clip length.")
     st.divider()
     st.write(f"**Detector:** {wlabel}")
