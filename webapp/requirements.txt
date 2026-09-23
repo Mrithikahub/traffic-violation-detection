@@ -1,10 +1,18 @@
 # Dependencies for the hosted demo (CPU only).
 # NOTE: opencv-python-headless, not opencv-python. Cloud containers have no GUI
 # libraries, and the non-headless build fails to import there with a libGL error.
+#
+# CPU-only torch. On Linux, PyPI's torch wheel is the CUDA build: measured on a
+# CPU-only container, `import torch` alone is ~706 MB resident because it loads
+# ~400 MB of CUDA/Triton libraries that are never used. The +cpu builds from
+# PyTorch's own index leave those out. Pinned with the +cpu local version so a
+# resolver that ignores the extra index fails loudly instead of silently
+# installing the CUDA build.
+--extra-index-url https://download.pytorch.org/whl/cpu
 streamlit>=1.40
 ultralytics>=8.3.0
-torch>=2.2
-torchvision>=0.17
+torch==2.8.0+cpu
+torchvision==0.23.0+cpu
 opencv-python-headless>=4.10
 numpy>=1.24
 pandas>=2.0
