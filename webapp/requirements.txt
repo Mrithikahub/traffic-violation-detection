@@ -1,0 +1,12 @@
+# Dependencies for the hosted demo (CPU only).
+# NOTE: opencv-python-headless, not opencv-python. Cloud containers have no GUI
+# libraries, and the non-headless build fails to import there with a libGL error.
+streamlit>=1.40
+ultralytics>=8.3.0
+torch>=2.2
+torchvision>=0.17
+opencv-python-headless>=4.10
+numpy>=1.24
+pandas>=2.0
+lap>=0.5.12
+imageio-ffmpeg>=0.5
