@@ -26,8 +26,13 @@ import cv2
 import pandas as pd
 import streamlit as st
 
-ROOT = Path(__file__).resolve().parent.parent
-SAMPLE = ROOT / "webapp" / "assets" / "sample_clip.mp4"
+_HERE = Path(__file__).resolve().parent
+# Works from two layouts: this repo (webapp/streamlit_app.py, pipeline scripts
+# one level up) and a Hugging Face Space (app.py beside the pipeline scripts).
+ROOT = _HERE if (_HERE / "detect_track.py").exists() else _HERE.parent
+SAMPLE = next((p for p in (_HERE / "assets" / "sample_clip.mp4",
+                           ROOT / "webapp" / "assets" / "sample_clip.mp4")
+               if p.exists()), _HERE / "assets" / "sample_clip.mp4")
 FINETUNED = ROOT / "runs" / "detect" / "runs" / "bmd45_ft" / "weights" / "best.pt"
 
 st.set_page_config(page_title="Traffic Violation Detection", page_icon="🚦",
