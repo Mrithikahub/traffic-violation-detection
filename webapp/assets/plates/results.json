@@ -1,0 +1,31 @@
+{
+  "generated": "2026-09-23",
+  "samples": [
+    {
+      "crop": "plate_1_crop.png",
+      "photo": "plate_1_photo.jpg",
+      "verified_text": "MH01CP2655",
+      "plate_text": "MH01CP2655",
+      "raw_ocr_text": "MH,01 CP,2655",
+      "ocr_confidence": 0.917,
+      "detection_confidence": 0.862,
+      "is_valid_indian_format": true,
+      "state_name": "Maharashtra",
+      "ocr_engine": "easyocr",
+      "detector": "yolo"
+    },
+    {
+      "crop": "plate_2_crop.png",
+      "photo": "plate_2_photo.jpg",
+      "verified_text": "MH03CS6266",
+      "plate_text": "MH03CS6266",
+      "raw_ocr_text": "MH.03.CS.6266",
+      "ocr_confidence": 0.943,
+      "detection_confidence": 0.846,
+      "is_valid_indian_format": true,
+      "state_name": "Maharashtra",
+      "ocr_engine": "easyocr",
+      "detector": "yolo"
+    }
+  ]
+}
