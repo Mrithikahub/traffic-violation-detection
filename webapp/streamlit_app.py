@@ -248,3 +248,44 @@ if go:
 
     with st.expander("Run log"):
         st.code("\n".join(log))
+
+
+def plate_samples() -> None:
+    """Pre-computed plate recognition results, read from files.
+
+    Live plate recognition (YOLOv8n + EasyOCR) needs roughly 1.5 GB on its own,
+    more than Community Cloud guarantees, and the sample clip's plates are too
+    small to read anyway. These results come from webapp/precompute_plates.py,
+    which runs the real recognizer on still photos and keeps a result only if
+    its OCR matches the plate text a person read off the photo.
+    """
+    d = next((p for p in (_HERE / "assets" / "plates",
+                          ROOT / "webapp" / "assets" / "plates")
+              if (p / "results.json").exists()), None)
+    if d is None:
+        return
+    samples = json.loads((d / "results.json").read_text(encoding="utf-8"))["samples"]
+    st.divider()
+    st.subheader("Sample plate recognition result (pre-computed, not run live)")
+    st.caption("These photos were run through the project's plate pipeline "
+               "(YOLOv8n plate detector, then EasyOCR) offline, and the output "
+               "is shown as it came out. The text was checked against each "
+               "plate by eye. Plate recognition does not run on the clips above: "
+               "it needs more memory than this free host provides, and plates "
+               "in the sample clip are too small to read.")
+    for s in samples:
+        c1, c2 = st.columns([3, 2])
+        c1.image(str(d / s["photo"]), caption="Detected plate (green box)",
+                 use_container_width=True)
+        c2.image(str(d / s["crop"]), caption="Plate crop passed to OCR",
+                 use_container_width=True)
+        c2.metric("OCR text", s["plate_text"])
+        c2.write(f"OCR confidence **{s['ocr_confidence']:.2f}** · plate detection "
+                 f"confidence **{s['detection_confidence']:.2f}**")
+        if s.get("is_valid_indian_format"):
+            c2.write(f"Valid Indian registration format"
+                     + (f" ({s['state_name']})" if s.get("state_name") else ""))
+        c2.caption(f"Raw OCR output before cleaning: `{s['raw_ocr_text']}`")
+
+
+plate_samples()
