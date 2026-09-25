@@ -58,9 +58,6 @@ section[data-testid="stSidebar"] {{ display: none; }}
 .tv-hero::after {{ content: ""; position: absolute; inset: auto -10% -40% auto;
   width: 520px; height: 520px; border-radius: 50%;
   background: rgba(255,255,255,.08); pointer-events: none; }}
-.tv-eyebrow {{ display: inline-block; font-size: .78rem; font-weight: 700;
-  letter-spacing: .08em; text-transform: uppercase; color: #fff;
-  background: rgba(0,0,0,.18); padding: .35rem .75rem; border-radius: 999px; }}
 .tv-hero h1 {{ color: #fff; font-size: clamp(2rem, 3.6vw, 3.1rem); font-weight: 800;
   line-height: 1.08; letter-spacing: -.025em; margin: 1rem 0 .9rem; padding: 0; }}
 .tv-rule {{ width: 56px; height: 5px; border-radius: 3px; background: #fff; margin-bottom: 1rem; }}
@@ -173,7 +170,6 @@ def hero(img_uri: str, live_plates: bool) -> str:
 </div>
 <div class="tv-hero">
   <div>
-    <span class="tv-eyebrow">Team Tech Titans · runs on CPU</span>
     <h1>Spot traffic violations in road video.</h1>
     <div class="tv-rule"></div>
     <p class="tv-tag">Vehicle detection and tracking, four violation checks and
@@ -211,6 +207,6 @@ def steps(live_plates: bool) -> str:
 """
 
 
-FOOTER = """<div class="tv-foot">Team Tech Titans · AI-Based Intelligent Vehicle
+FOOTER = """<div class="tv-foot">AI-Based Intelligent Vehicle
 Monitoring and Traffic Violation Detection · Fine amounts are prototype rules,
 not legally enforceable.</div>"""

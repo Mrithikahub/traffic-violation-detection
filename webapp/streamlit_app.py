@@ -199,7 +199,7 @@ with st.container(key="controls"):
     # Measured on an i5-1235U, CPU only: 5 s of video took 34 s (warm) and 8 s
     # took 109 s (cold start, model load included), i.e. 7-14 s of compute per
     # second of video. Shared cloud CPUs are slower again.
-    st.caption(f"**Detector:** {wlabel} · **Tracker:** ByteTrack · CPU only. "
+    st.caption(f"**Detector:** {wlabel} · **Tracker:** ByteTrack · "
                f"Measured at 7-14 s of processing per second of video "
                f"on a laptop CPU, and slower on a free shared tier, so expect "
                f"roughly {max(1, seconds * 7 // 60)}-{seconds * 30 // 60 + 1} "
