@@ -12,10 +12,10 @@ Deploy from the repo root, after `pip install modal` and `modal setup`:
 
 Cost: Modal's Starter plan includes $30 of compute a month, and with no payment
 method on the account, usage stops there rather than being billed. At the sizes
-below (2 CPU cores, 4 GiB) a running container costs about $0.13 an hour, so
-roughly 230 hours a month. The container shuts down 5 minutes after the last
-visitor disconnects, but an open browser tab keeps it running, so close the
-tab when you are done.
+below (2 CPU cores, 4 GiB) a running container costs about $0.13 an hour, and
+nonpreemptible=True triples that to about $0.38 an hour, so roughly 80 hours a
+month. The container shuts down 15 minutes after the last visitor disconnects,
+but an open browser tab keeps it running, so close the tab when you are done.
 """
 from pathlib import Path
 
@@ -87,7 +87,13 @@ app = modal.App("traffic-violation-demo", image=image)
     cpu=2.0,
     memory=4096,           # plate stage peaks ~1.5 GB, plus the Streamlit server
     max_containers=1,      # one container; the app queues pipeline runs itself
-    scaledown_window=300,  # shut down 5 min after the last connection closes
+    scaledown_window=900,  # shut down 15 min after the last connection closes,
+                           # so a demo with pauses between runs stays warm
+    # Default containers are preemptible: Modal can reclaim the machine
+    # mid-session, and the restart then waits for a free CPU worker. This
+    # keeps a running container in place, at 3x the CPU and memory price.
+    # It does not make a cold start any faster to schedule.
+    nonpreemptible=True,
     timeout=3600,
 )
 @modal.concurrent(max_inputs=50)
