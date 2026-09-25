@@ -17,6 +17,7 @@ transfers across cameras.
 import json
 import os
 import shutil
+import signal
 import subprocess
 import sys
 import tempfile
@@ -41,6 +42,9 @@ FINETUNED = ROOT / "runs" / "detect" / "runs" / "bmd45_ft" / "weights" / "best.p
 # does not fit Streamlit Community Cloud. Only a host with room for it (the Modal
 # deployment in webapp/modal_app.py) sets this.
 LIVE_PLATES = os.environ.get("TVD_LIVE_PLATES") == "1"
+# Longest a single pipeline stage may run. An 8 s clip takes under a minute on
+# 4 cores and a few minutes on a slow shared core; past this it is stuck.
+STAGE_TIMEOUT_S = int(os.environ.get("TVD_STAGE_TIMEOUT_S", "900"))
 
 st.set_page_config(page_title="Traffic Violation Detection", page_icon="🚦",
                    layout="wide", initial_sidebar_state="collapsed")
@@ -111,14 +115,25 @@ def run(cmd: list[str], log: list[str]) -> bool:
         log.append("timed out waiting for another run to finish")
         return False
     try:
-        r = subprocess.run([sys.executable] + cmd, cwd=str(ROOT),
-                           capture_output=True, text=True, env=env)
+        # Own process group, so a hung stage can be killed together with the
+        # scripts it starts (run_pipeline.py runs each layer as a child).
+        # Without a cap, one hung run would hold the lock for every viewer.
+        p = subprocess.Popen([sys.executable] + cmd, cwd=str(ROOT), env=env,
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                             text=True, start_new_session=True)
+        try:
+            _, err = p.communicate(timeout=STAGE_TIMEOUT_S)
+        except subprocess.TimeoutExpired:
+            os.killpg(p.pid, signal.SIGKILL)
+            p.communicate()
+            log.append(f"$ {' '.join(cmd[:2])} ... stopped after {STAGE_TIMEOUT_S} s")
+            return False
     finally:
         lock.release()
-    log.append(f"$ {' '.join(cmd[:2])} ... rc={r.returncode}")
-    if r.returncode != 0:
-        log.append((r.stderr or "")[-1500:])
-    return r.returncode == 0
+    log.append(f"$ {' '.join(cmd[:2])} ... rc={p.returncode}")
+    if p.returncode != 0:
+        log.append((err or "")[-1500:])
+    return p.returncode == 0
 
 
 def live_plates(work: Path, stem: str, ran_ok: bool) -> None:
