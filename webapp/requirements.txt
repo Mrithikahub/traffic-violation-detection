@@ -1,7 +1,9 @@
 # Dependencies for the hosted demo (CPU only).
 # NOTE: opencv-python-headless, not opencv-python. Cloud containers have no GUI
 # libraries, and the non-headless build fails to import there with a libGL error.
-streamlit>=1.40
+# Pinned: webapp/ui.py styles Streamlit through its internal page structure,
+# which can change between releases. Re-check the page before bumping this.
+streamlit==1.64.0
 ultralytics>=8.3.0
 torch>=2.2
 torchvision>=0.17

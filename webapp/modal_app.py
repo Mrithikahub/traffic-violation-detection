@@ -34,7 +34,8 @@ FILES = [
     "outputs_demo/lanes.json", "outputs_demo/site_calibration.json",
     "runs/detect/runs/bmd45_ft/weights/best.pt",
     "npr_module/runs/detect/npr_yolov8n_baseline/weights/best.pt",
-    "webapp/streamlit_app.py", "webapp/plate_stage.py",
+    "webapp/streamlit_app.py", "webapp/plate_stage.py", "webapp/ui.py",
+    ".streamlit/config.toml",
     "webapp/assets/sample_clip.mp4",
 ]
 DIRS = ["npr_module/src", "webapp/assets/plates"]
@@ -53,7 +54,7 @@ image = (
     # libraries that a CPU container never uses.
     .pip_install("torch==2.8.0", "torchvision==0.23.0",
                  index_url="https://download.pytorch.org/whl/cpu")
-    .pip_install("streamlit>=1.40", "ultralytics>=8.3.0",
+    .pip_install("streamlit==1.64.0", "ultralytics>=8.3.0",
                  "opencv-python-headless>=4.10", "numpy>=1.24", "pandas>=2.0",
                  "lap>=0.5.12", "imageio-ffmpeg>=0.5", "easyocr>=1.7")
     # ultralytics depends on the GUI build opencv-python, easyocr on
