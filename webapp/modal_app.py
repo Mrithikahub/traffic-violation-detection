@@ -56,6 +56,21 @@ image = (
     .pip_install("streamlit>=1.40", "ultralytics>=8.3.0",
                  "opencv-python-headless>=4.10", "numpy>=1.24", "pandas>=2.0",
                  "lap>=0.5.12", "imageio-ffmpeg>=0.5", "easyocr>=1.7")
+    # ultralytics depends on the GUI build opencv-python, easyocr on
+    # opencv-python-headless. Both install into the same cv2/ folder, and the
+    # GUI build needs libGL, GLib and X11, which this slim image does not have,
+    # so importing cv2 fails. Nothing here opens a window: keep only the
+    # headless build, at the version the resolver chose.
+    .run_commands(
+        "V=$(pip show opencv-python-headless | awk '/^Version:/{print $2}') && "
+        "pip uninstall -y opencv-python opencv-python-headless && "
+        'pip install --no-deps "opencv-python-headless==$V"',
+        # Fail the build here, with a clear message, if that ever regresses.
+        "python -c \"import importlib.metadata as m, cv2, easyocr, ultralytics; "
+        "assert 'opencv-python' not in {d.metadata['Name'].lower() for d in "
+        "m.distributions()}, 'GUI opencv-python is installed'; "
+        "print('cv2', cv2.__version__, 'headless OK')\"",
+    )
     .run_function(_fetch_easyocr_weights)
     .env({"TVD_LIVE_PLATES": "1"})
 )
