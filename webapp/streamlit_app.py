@@ -35,6 +35,10 @@ SAMPLE = next((p for p in (_HERE / "assets" / "sample_clip.mp4",
                            ROOT / "webapp" / "assets" / "sample_clip.mp4")
                if p.exists()), _HERE / "assets" / "sample_clip.mp4")
 FINETUNED = ROOT / "runs" / "detect" / "runs" / "bmd45_ft" / "weights" / "best.pt"
+# Live plate reading loads YOLOv8n + EasyOCR (~1.5 GB) in its own process, which
+# does not fit Streamlit Community Cloud. Only a host with room for it (the Modal
+# deployment in webapp/modal_app.py) sets this.
+LIVE_PLATES = os.environ.get("TVD_LIVE_PLATES") == "1"
 
 st.set_page_config(page_title="Traffic Violation Detection", page_icon="🚦",
                    layout="wide")
@@ -115,6 +119,53 @@ def run(cmd: list[str], log: list[str]) -> bool:
     return r.returncode == 0
 
 
+def live_plates(work: Path, stem: str, ran_ok: bool) -> None:
+    """Plates read live from this clip by webapp/plate_stage.py.
+
+    Text is shown only for readings plate_stage.py marked legible (valid Indian
+    format and OCR confidence at or above its floor), and always as unverified:
+    on hand-checked photos some readings passed both checks and were still wrong.
+    """
+    st.subheader("Number plates (read live from this clip)")
+    f = work / f"{stem}_plates.json"
+    if not ran_ok or not f.exists():
+        st.warning("Plate reading did not complete for this clip. The results "
+                   "above are unaffected; see the run log for details.")
+        return
+    data = json.loads(f.read_text(encoding="utf-8"))
+    plates = data["plates"]
+    readings = [p for p in plates if p["status"] == "reading"]
+    illegible = [p for p in plates if p["status"] == "illegible"]
+    st.caption(f"{data['vehicles_checked']} vehicles large enough to check · "
+               f"{len(plates)} plates found · {len(readings)} readable. "
+               f"Text is shown only when it is in a valid Indian registration "
+               f"format with OCR confidence of at least {data['min_ocr_conf']:.1f}. "
+               f"These are unverified OCR readings and can still be wrong.")
+    if not plates:
+        st.info("No number plates were found. Plates need to be large and sharp "
+                "in the frame, as in close-range footage.")
+        return
+    for p in readings:
+        c1, c2 = st.columns([1, 2])
+        c1.image(str(work / p["crop"]), width=260)
+        c2.markdown(f"**OCR reading (unverified): `{p['plate_text']}`**")
+        c2.caption(f"Vehicle {p['vehicle_id']} · frame {p['frame_id']} · OCR "
+                   f"confidence {p['ocr_confidence']:.2f}"
+                   + (f" · {p['state_name']}" if p.get("state_name") else ""))
+    if illegible:
+        st.markdown(f"**Plate found, OCR could not read it reliably — {len(illegible)}**")
+        st.caption("A plate was detected, but the OCR text did not pass the "
+                   "checks above, so no text is shown rather than a guess. "
+                   "Common causes are small or blurred plates, steep angles, "
+                   "and a plate cut off at the edge of the vehicle box.")
+        biggest = sorted(illegible, key=lambda p: -p["crop_width_px"])[:12]
+        cols = st.columns(4)
+        for i, p in enumerate(biggest):
+            cols[i % 4].image(str(work / p["crop"]), width=160,
+                              caption=f"Vehicle {p['vehicle_id']} · "
+                                      f"{p['crop_width_px']} px wide")
+
+
 st.title("🚦 Traffic Violation Detection")
 st.caption("Vehicle detection and tracking, four violation layers, and rule-based "
            "fine estimation. Team Tech Titans.")
@@ -143,6 +194,10 @@ if mode == "Upload a clip":
             "to one specific camera, which does not exist for an uploaded clip. "
             "This mode runs detection, tracking and tailgating, which is "
             "scale-free. Pick the sample clip to see all four layers.")
+if LIVE_PLATES:
+    st.caption("Number plate reading also runs on every clip, uploaded or "
+               "sample. It needs no camera calibration, but it can only read "
+               "plates that are large and sharp in the frame.")
 
 go = st.button("Run pipeline", type="primary", use_container_width=True)
 
@@ -190,6 +245,13 @@ if go:
             status.update(label="Pipeline failed", state="error")
             st.code("\n".join(log))
             st.stop()
+        plates_ok = False
+        if LIVE_PLATES:
+            st.write("Reading number plates")
+            plates_ok = run(["webapp/plate_stage.py", "--video", str(clip),
+                             "--tracks", str(work / f"{stem}_tracks.csv"),
+                             "--vehicles", str(work / f"{stem}_vehicles.csv"),
+                             "--out-dir", str(work)], log)
         status.update(label=f"Done in {time.time() - t0:.0f} s", state="complete")
 
     elapsed = time.time() - t0
@@ -246,6 +308,9 @@ if go:
             st.subheader(f"Tailgating events — {len(edf)}")
             st.dataframe(edf, use_container_width=True, height=280)
 
+    if LIVE_PLATES:
+        live_plates(work, stem, plates_ok)
+
     with st.expander("Run log"):
         st.code("\n".join(log))
 
@@ -270,9 +335,14 @@ def plate_samples() -> None:
     st.caption("These photos were run through the project's plate pipeline "
                "(YOLOv8n plate detector, then EasyOCR) offline, and the output "
                "is shown as it came out. The text was checked against each "
-               "plate by eye. Plate recognition does not run on the clips above: "
-               "it needs more memory than this free host provides, and plates "
-               "in the sample clip are too small to read.")
+               "plate by eye. "
+               + ("Plates in your own clip are read live above, but most "
+                  "traffic footage has plates too small to read, so these "
+                  "show the pipeline on sharp photos."
+                  if LIVE_PLATES else
+                  "Plate recognition does not run on the clips above: it needs "
+                  "more memory than this free host provides, and plates in the "
+                  "sample clip are too small to read."))
     for s in samples:
         c1, c2 = st.columns([3, 2])
         c1.image(str(d / s["photo"]), caption="Detected plate (green box)",
