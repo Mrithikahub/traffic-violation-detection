@@ -1,0 +1,9 @@
+# Theme for the demo app (webapp/streamlit_app.py). Streamlit reads this from
+# the directory it is launched in, which is the repo root on Community Cloud and
+# /root/app on Modal. The page CSS in webapp/ui.py assumes this light base.
+[theme]
+base = "light"
+primaryColor = "#EA580C"
+backgroundColor = "#F6F5F4"
+secondaryBackgroundColor = "#FFF7ED"
+textColor = "#1C1917"

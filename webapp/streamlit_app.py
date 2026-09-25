@@ -28,6 +28,8 @@ import pandas as pd
 import streamlit as st
 
 _HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(_HERE))
+import ui  # noqa: E402  (page CSS and static HTML; presentation only)
 # Works from two layouts: this repo (webapp/streamlit_app.py, pipeline scripts
 # one level up) and a Hugging Face Space (app.py beside the pipeline scripts).
 ROOT = _HERE if (_HERE / "detect_track.py").exists() else _HERE.parent
@@ -35,9 +37,13 @@ SAMPLE = next((p for p in (_HERE / "assets" / "sample_clip.mp4",
                            ROOT / "webapp" / "assets" / "sample_clip.mp4")
                if p.exists()), _HERE / "assets" / "sample_clip.mp4")
 FINETUNED = ROOT / "runs" / "detect" / "runs" / "bmd45_ft" / "weights" / "best.pt"
+# Live plate reading loads YOLOv8n + EasyOCR (~1.5 GB) in its own process, which
+# does not fit Streamlit Community Cloud. Only a host with room for it (the Modal
+# deployment in webapp/modal_app.py) sets this.
+LIVE_PLATES = os.environ.get("TVD_LIVE_PLATES") == "1"
 
 st.set_page_config(page_title="Traffic Violation Detection", page_icon="🚦",
-                   layout="wide")
+                   layout="wide", initial_sidebar_state="collapsed")
 
 
 def weights():
@@ -115,36 +121,89 @@ def run(cmd: list[str], log: list[str]) -> bool:
     return r.returncode == 0
 
 
-st.title("🚦 Traffic Violation Detection")
-st.caption("Vehicle detection and tracking, four violation layers, and rule-based "
-           "fine estimation. Team Tech Titans.")
+def live_plates(work: Path, stem: str, ran_ok: bool) -> None:
+    """Plates read live from this clip by webapp/plate_stage.py.
+
+    Text is shown only for readings plate_stage.py marked legible (valid Indian
+    format and OCR confidence at or above its floor), and always as unverified:
+    on hand-checked photos some readings passed both checks and were still wrong.
+    """
+    st.subheader("Number plates (read live from this clip)")
+    f = work / f"{stem}_plates.json"
+    if not ran_ok or not f.exists():
+        st.warning("Plate reading did not complete for this clip. The results "
+                   "above are unaffected; see the run log for details.")
+        return
+    data = json.loads(f.read_text(encoding="utf-8"))
+    plates = data["plates"]
+    readings = [p for p in plates if p["status"] == "reading"]
+    illegible = [p for p in plates if p["status"] == "illegible"]
+    st.caption(f"{data['vehicles_checked']} vehicles large enough to check · "
+               f"{len(plates)} plates found · {len(readings)} readable. "
+               f"Text is shown only when it is in a valid Indian registration "
+               f"format with OCR confidence of at least {data['min_ocr_conf']:.1f}. "
+               f"These are unverified OCR readings and can still be wrong.")
+    if not plates:
+        st.info("No number plates were found. Plates need to be large and sharp "
+                "in the frame, as in close-range footage.")
+        return
+    for p in readings:
+        c1, c2 = st.columns([1, 2])
+        c1.image(str(work / p["crop"]), width=260)
+        c2.markdown(f"**OCR reading (unverified): `{p['plate_text']}`**")
+        c2.caption(f"Vehicle {p['vehicle_id']} · frame {p['frame_id']} · OCR "
+                   f"confidence {p['ocr_confidence']:.2f}"
+                   + (f" · {p['state_name']}" if p.get("state_name") else ""))
+    if illegible:
+        st.markdown(f"**Plate found, OCR could not read it reliably — {len(illegible)}**")
+        st.caption("A plate was detected, but the OCR text did not pass the "
+                   "checks above, so no text is shown rather than a guess. "
+                   "Common causes are small or blurred plates, steep angles, "
+                   "and a plate cut off at the edge of the vehicle box.")
+        biggest = sorted(illegible, key=lambda p: -p["crop_width_px"])[:12]
+        cols = st.columns(4)
+        for i, p in enumerate(biggest):
+            cols[i % 4].image(str(work / p["crop"]), width=160,
+                              caption=f"Vehicle {p['vehicle_id']} · "
+                                      f"{p['crop_width_px']} px wide")
+
+
+@st.cache_data
+def _hero_uri() -> str:
+    return ui.hero_image(SAMPLE) if SAMPLE.exists() else ""
+
+
+st.markdown(ui.CSS, unsafe_allow_html=True)
+st.markdown(ui.hero(_hero_uri(), LIVE_PLATES), unsafe_allow_html=True)
 
 wpath, wlabel = weights()
-with st.sidebar:
-    st.header("Input")
-    mode = st.radio("Source", ["Sample clip (full pipeline)", "Upload a clip"])
-    seconds = st.slider("Seconds to process", 3, 8, 3,
+with st.container(key="controls"):
+    c1, c2, c3 = st.columns([1.5, 1.05, 0.75], vertical_alignment="bottom")
+    mode = c1.radio("Source", ["Sample clip (full pipeline)", "Upload a clip"],
+                    horizontal=True)
+    seconds = c2.slider("Seconds to process", 3, 8, 3,
                         help="Processing time scales linearly with clip length.")
-    st.divider()
-    st.write(f"**Detector:** {wlabel}")
-    st.write("**Tracker:** ByteTrack")
+    go = c3.button("Run pipeline", type="primary", width="stretch")
+
+    uploaded = None
+    if mode == "Upload a clip":
+        uploaded = st.file_uploader("Video file", type=["mp4", "avi", "mov", "mkv"])
+        st.info("Speed, wrong-side and lane-change need a homography and zones fitted "
+                "to one specific camera, which does not exist for an uploaded clip. "
+                "This mode runs detection, tracking and tailgating, which is "
+                "scale-free. Pick the sample clip to see all four layers.")
+    if LIVE_PLATES:
+        st.caption("Number plate reading also runs on every clip, uploaded or "
+                   "sample. It needs no camera calibration, but it can only read "
+                   "plates that are large and sharp in the frame.")
     # Measured on an i5-1235U, CPU only: 5 s of video took 34 s (warm) and 8 s
     # took 109 s (cold start, model load included), i.e. 7-14 s of compute per
     # second of video. Shared cloud CPUs are slower again.
-    st.caption(f"CPU only. Measured at 7-14 s of processing per second of video "
+    st.caption(f"**Detector:** {wlabel} · **Tracker:** ByteTrack · "
+               f"Measured at 7-14 s of processing per second of video "
                f"on a laptop CPU, and slower on a free shared tier, so expect "
                f"roughly {max(1, seconds * 7 // 60)}-{seconds * 30 // 60 + 1} "
                f"minutes for {seconds} s of video.")
-
-uploaded = None
-if mode == "Upload a clip":
-    uploaded = st.file_uploader("Video file", type=["mp4", "avi", "mov", "mkv"])
-    st.info("Speed, wrong-side and lane-change need a homography and zones fitted "
-            "to one specific camera, which does not exist for an uploaded clip. "
-            "This mode runs detection, tracking and tailgating, which is "
-            "scale-free. Pick the sample clip to see all four layers.")
-
-go = st.button("Run pipeline", type="primary", use_container_width=True)
 
 if go:
     if mode == "Upload a clip" and uploaded is None:
@@ -163,7 +222,8 @@ if go:
 
     log: list[str] = []
     t0 = time.time()
-    with st.status("Running the pipeline…", expanded=True) as status:
+    with st.container(key="card_run"), \
+            st.status("Running the pipeline…", expanded=True) as status:
         st.write("Trimming clip")
         nframes, fps = trim(src, work / "clip.mp4", seconds)
         if nframes == 0:
@@ -190,64 +250,82 @@ if go:
             status.update(label="Pipeline failed", state="error")
             st.code("\n".join(log))
             st.stop()
+        plates_ok = False
+        if LIVE_PLATES:
+            st.write("Reading number plates")
+            plates_ok = run(["webapp/plate_stage.py", "--video", str(clip),
+                             "--tracks", str(work / f"{stem}_tracks.csv"),
+                             "--vehicles", str(work / f"{stem}_vehicles.csv"),
+                             "--out-dir", str(work)], log)
         status.update(label=f"Done in {time.time() - t0:.0f} s", state="complete")
 
     elapsed = time.time() - t0
-    st.success(f"Processed {nframes} frames ({nframes / fps:.1f} s of video) in "
-               f"{elapsed:.0f} s — {nframes / elapsed:.1f} FPS on this machine.")
-
-    vid = (work / f"{stem}_all_violations.mp4") if full else (work / f"{stem}_tailgating.mp4")
-    if vid.exists():
-        play = to_h264(vid) or vid
-        st.video(str(play))
-        st.download_button("Download annotated video", vid.read_bytes(),
-                           file_name=vid.name, mime="video/mp4")
-    else:
-        st.warning("No annotated video was produced.")
-
-    tracks = work / f"{stem}_tracks.csv"
-    vehicles = work / f"{stem}_vehicles.csv"
-    c1, c2, c3 = st.columns(3)
-    if tracks.exists():
-        df = pd.read_csv(tracks)
-        c1.metric("Detections", f"{len(df):,}")
-        c2.metric("Vehicles tracked", df[df.vehicle_id != -1].vehicle_id.nunique())
-    if vehicles.exists():
-        vdf = pd.read_csv(vehicles)
-        c3.metric("Classes seen", vdf["class"].nunique())
-        st.subheader("Vehicles")
-        st.dataframe(vdf, use_container_width=True, height=240)
+    with st.container(key="card_video"):
+        st.subheader("Annotated video")
+        st.success(f"Processed {nframes} frames ({nframes / fps:.1f} s of video) in "
+                   f"{elapsed:.0f} s — {nframes / elapsed:.1f} FPS on this machine.")
+        vid = (work / f"{stem}_all_violations.mp4") if full else (work / f"{stem}_tailgating.mp4")
+        if vid.exists():
+            play = to_h264(vid) or vid
+            st.video(str(play))
+            st.download_button("Download annotated video", vid.read_bytes(),
+                               file_name=vid.name, mime="video/mp4")
+        else:
+            st.warning("No annotated video was produced.")
 
     if full:
         fines = work / f"{stem}_fines.csv"
         kpi = work / f"{stem}_summary_kpi.json"
         if kpi.exists():
             k = json.loads(kpi.read_text(encoding="utf-8"))
-            st.subheader("Violations")
-            cols = st.columns(5)
-            for col, (name, key) in zip(cols, [("Speeding", "speeding"),
-                                               ("Wrong side", "wrong_side"),
-                                               ("Lane change", "lane_change"),
-                                               ("Tailgating", "tailgating")]):
-                col.metric(name, k.get("violations_by_type", {}).get(key, 0))
-            cols[4].metric("Total fines (INR)", f"{k.get('total_prototype_fines', 0):,.0f}")
-        if fines.exists():
-            fdf = pd.read_csv(fines)
-            flagged = fdf[fdf.total_fine > 0]
-            st.subheader(f"Fines — {len(flagged)} vehicles")
-            st.dataframe(flagged, use_container_width=True, height=280)
-        st.caption("Fine amounts are configurable prototype rules for demonstration "
-                   "only and are not legally enforceable. Speeds rest on IRC standard "
-                   "road geometry that was not site-verified.")
+            with st.container(key="card_violations"):
+                st.subheader("Violations")
+                cols = st.columns(5)
+                for col, (name, key) in zip(cols, [("Speeding", "speeding"),
+                                                   ("Wrong side", "wrong_side"),
+                                                   ("Lane change", "lane_change"),
+                                                   ("Tailgating", "tailgating")]):
+                    col.metric(name, k.get("violations_by_type", {}).get(key, 0))
+                cols[4].metric("Total fines (INR)", f"{k.get('total_prototype_fines', 0):,.0f}")
+        with st.container(key="card_fines"):
+            if fines.exists():
+                fdf = pd.read_csv(fines)
+                flagged = fdf[fdf.total_fine > 0]
+                st.subheader(f"Fines — {len(flagged)} vehicles")
+                st.dataframe(flagged, width="stretch", height=280)
+            st.caption("Fine amounts are configurable prototype rules for demonstration "
+                       "only and are not legally enforceable. Speeds rest on IRC standard "
+                       "road geometry that was not site-verified.")
     else:
         ev = work / f"{stem}_tailgating_events.csv"
         if ev.exists():
             edf = pd.read_csv(ev)
-            st.subheader(f"Tailgating events — {len(edf)}")
-            st.dataframe(edf, use_container_width=True, height=280)
+            with st.container(key="card_tailgating"):
+                st.subheader(f"Tailgating events — {len(edf)}")
+                st.dataframe(edf, width="stretch", height=280)
 
-    with st.expander("Run log"):
-        st.code("\n".join(log))
+    tracks = work / f"{stem}_tracks.csv"
+    vehicles = work / f"{stem}_vehicles.csv"
+    with st.container(key="card_traffic"):
+        st.subheader("Traffic detected")
+        c1, c2, c3 = st.columns(3)
+        if tracks.exists():
+            df = pd.read_csv(tracks)
+            c1.metric("Detections", f"{len(df):,}")
+            c2.metric("Vehicles tracked", df[df.vehicle_id != -1].vehicle_id.nunique())
+        if vehicles.exists():
+            vdf = pd.read_csv(vehicles)
+            c3.metric("Classes seen", vdf["class"].nunique())
+            st.markdown("**Vehicles**")
+            st.dataframe(vdf, width="stretch", height=240)
+
+    if LIVE_PLATES:
+        with st.container(key="card_plates_live"):
+            live_plates(work, stem, plates_ok)
+
+    with st.container(key="card_log"):
+        with st.expander("Run log"):
+            st.code("\n".join(log))
 
 
 def plate_samples() -> None:
@@ -265,20 +343,26 @@ def plate_samples() -> None:
     if d is None:
         return
     samples = json.loads((d / "results.json").read_text(encoding="utf-8"))["samples"]
-    st.divider()
-    st.subheader("Sample plate recognition result (pre-computed, not run live)")
-    st.caption("These photos were run through the project's plate pipeline "
+    st.markdown('<a id="plates"></a>', unsafe_allow_html=True)
+    box = st.container(key="card_samples")
+    box.subheader("Sample plate recognition result (pre-computed, not run live)")
+    box.caption("These photos were run through the project's plate pipeline "
                "(YOLOv8n plate detector, then EasyOCR) offline, and the output "
                "is shown as it came out. The text was checked against each "
-               "plate by eye. Plate recognition does not run on the clips above: "
-               "it needs more memory than this free host provides, and plates "
-               "in the sample clip are too small to read.")
+               "plate by eye. "
+               + ("Plates in your own clip are read live above, but most "
+                  "traffic footage has plates too small to read, so these "
+                  "show the pipeline on sharp photos."
+                  if LIVE_PLATES else
+                  "Plate recognition does not run on the clips above: it needs "
+                  "more memory than this free host provides, and plates in the "
+                  "sample clip are too small to read."))
     for s in samples:
-        c1, c2 = st.columns([3, 2])
+        c1, c2 = box.columns([3, 2])
         c1.image(str(d / s["photo"]), caption="Detected plate (green box)",
-                 use_container_width=True)
+                 width="stretch")
         c2.image(str(d / s["crop"]), caption="Plate crop passed to OCR",
-                 use_container_width=True)
+                 width="stretch")
         c2.metric("OCR text", s["plate_text"])
         c2.write(f"OCR confidence **{s['ocr_confidence']:.2f}** · plate detection "
                  f"confidence **{s['detection_confidence']:.2f}**")
@@ -288,4 +372,6 @@ def plate_samples() -> None:
         c2.caption(f"Raw OCR output before cleaning: `{s['raw_ocr_text']}`")
 
 
+st.markdown(ui.steps(LIVE_PLATES), unsafe_allow_html=True)
 plate_samples()
+st.markdown(ui.FOOTER, unsafe_allow_html=True)
