@@ -203,10 +203,6 @@ with st.container(key="controls"):
     uploaded = None
     if mode == "Upload a clip":
         uploaded = st.file_uploader("Video file", type=["mp4", "avi", "mov", "mkv"])
-        st.info("Speed, wrong-side and lane-change need a homography and zones fitted "
-                "to one specific camera, which does not exist for an uploaded clip. "
-                "This mode runs detection, tracking and tailgating, which is "
-                "scale-free. Pick the sample clip to see all four layers.")
     if LIVE_PLATES:
         st.caption("Number plate reading also runs on every clip, uploaded or "
                    "sample. It needs no camera calibration, but it can only read "
